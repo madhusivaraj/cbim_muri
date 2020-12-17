@@ -1,0 +1,604 @@
+INFO:root:Namespace(aggregation='average', batch_size=256, debug=False, device=device(type='cuda'), dropout=0.1, epochs=100, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='TCN', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/TCN_layers2_stride5_average_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/TCN_layers2_stride5_average_lr0.0001', temp_stride=5)
+INFO:root:TemporalConvNet(
+  (conv): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+  (layers): ModuleList(
+    (0): Sequential(
+      (0): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+      (1): Chomp1d()
+      (2): ReLU()
+    )
+    (1): TemporalBlock(
+      (conv1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (relu): ReLU()
+    )
+    (2): TemporalBlock(
+      (conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (downsample): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+      (relu): ReLU()
+    )
+  )
+  (pooling): AdaptiveAvgPool1d(output_size=1)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:TRAIN | Epoch: [0/100] | Loss: 0.6931 | AP: 40.46 | TP:98.91, FP:150.80, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [0/100] | Loss: 0.6913 | AP: 48.31 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:=> AP improved (48.31) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/100] | Loss: 0.6923 | AP: 46.89 | TP:97.20, FP:149.88, FN:0.61, TN:2.01 | ACC: 39.98
+INFO:root:VAL   | Epoch: [1/100] | Loss: 0.6913 | AP: 47.06 | TP:125.0, FP:176.0, FN:4.0, TN:8.0 | ACC: 42.49
+INFO:root:TRAIN | Epoch: [2/100] | Loss: 0.6914 | AP: 48.27 | TP:94.77, FP:144.44, FN:3.31, TN:7.18 | ACC: 41.03
+INFO:root:VAL   | Epoch: [2/100] | Loss: 0.6919 | AP: 41.70 | TP:123.0, FP:172.0, FN:6.0, TN:12.0 | ACC: 43.13
+INFO:root:TRAIN | Epoch: [3/100] | Loss: 0.6906 | AP: 48.43 | TP:89.69, FP:129.06, FN:8.81, TN:22.15 | ACC: 44.78
+INFO:root:VAL   | Epoch: [3/100] | Loss: 0.6924 | AP: 40.65 | TP:110.0, FP:150.0, FN:19.0, TN:34.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [4/100] | Loss: 0.6893 | AP: 49.25 | TP:80.90, FP:108.59, FN:17.39, TN:42.82 | ACC: 49.58
+INFO:root:VAL   | Epoch: [4/100] | Loss: 0.6933 | AP: 39.35 | TP:98.0, FP:137.0, FN:31.0, TN:47.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [5/100] | Loss: 0.6879 | AP: 48.78 | TP:78.53, FP:103.14, FN:19.83, TN:48.21 | ACC: 50.71
+INFO:root:VAL   | Epoch: [5/100] | Loss: 0.6952 | AP: 37.77 | TP:94.0, FP:139.0, FN:35.0, TN:45.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [6/100] | Loss: 0.6856 | AP: 48.99 | TP:78.23, FP:103.56, FN:19.93, TN:47.99 | ACC: 50.67
+INFO:root:VAL   | Epoch: [6/100] | Loss: 0.6982 | AP: 37.06 | TP:87.0, FP:133.0, FN:42.0, TN:51.0 | ACC: 44.09
+INFO:root:TRAIN | Epoch: [7/100] | Loss: 0.6832 | AP: 49.39 | TP:72.94, FP:93.30, FN:25.35, TN:58.11 | ACC: 52.50
+INFO:root:VAL   | Epoch: [7/100] | Loss: 0.7016 | AP: 36.83 | TP:77.0, FP:125.0, FN:52.0, TN:59.0 | ACC: 43.45
+INFO:root:TRAIN | Epoch: [8/100] | Loss: 0.6806 | AP: 49.72 | TP:65.07, FP:80.24, FN:33.02, TN:71.38 | ACC: 54.72
+INFO:root:VAL   | Epoch: [8/100] | Loss: 0.7060 | AP: 36.88 | TP:70.0, FP:114.0, FN:59.0, TN:70.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [9/100] | Loss: 0.6778 | AP: 50.39 | TP:69.08, FP:80.53, FN:29.42, TN:70.67 | ACC: 55.63
+INFO:root:VAL   | Epoch: [9/100] | Loss: 0.7139 | AP: 36.05 | TP:75.0, FP:125.0, FN:54.0, TN:59.0 | ACC: 42.81
+INFO:root:TRAIN | Epoch: [10/100] | Loss: 0.6764 | AP: 50.32 | TP:64.79, FP:79.52, FN:33.36, TN:72.03 | ACC: 55.05
+INFO:root:VAL   | Epoch: [10/100] | Loss: 0.7149 | AP: 36.91 | TP:67.0, FP:110.0, FN:62.0, TN:74.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [11/100] | Loss: 0.6757 | AP: 50.58 | TP:65.34, FP:76.42, FN:33.50, TN:74.45 | ACC: 55.97
+INFO:root:VAL   | Epoch: [11/100] | Loss: 0.7212 | AP: 36.24 | TP:70.0, FP:118.0, FN:59.0, TN:66.0 | ACC: 43.45
+INFO:root:TRAIN | Epoch: [12/100] | Loss: 0.6763 | AP: 51.05 | TP:60.88, FP:67.96, FN:37.13, TN:83.72 | ACC: 57.93
+INFO:root:VAL   | Epoch: [12/100] | Loss: 0.7192 | AP: 37.00 | TP:68.0, FP:102.0, FN:61.0, TN:82.0 | ACC: 47.92
+INFO:root:TRAIN | Epoch: [13/100] | Loss: 0.6748 | AP: 50.43 | TP:63.33, FP:72.49, FN:34.69, TN:79.19 | ACC: 56.93
+INFO:root:VAL   | Epoch: [13/100] | Loss: 0.7232 | AP: 36.28 | TP:72.0, FP:117.0, FN:57.0, TN:67.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [14/100] | Loss: 0.6717 | AP: 51.37 | TP:64.43, FP:75.67, FN:33.38, TN:76.22 | ACC: 56.39
+INFO:root:VAL   | Epoch: [14/100] | Loss: 0.7210 | AP: 36.99 | TP:70.0, FP:107.0, FN:59.0, TN:77.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [15/100] | Loss: 0.6725 | AP: 51.58 | TP:64.21, FP:72.35, FN:34.35, TN:78.79 | ACC: 57.30
+INFO:root:VAL   | Epoch: [15/100] | Loss: 0.7233 | AP: 36.92 | TP:71.0, FP:113.0, FN:58.0, TN:71.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [16/100] | Loss: 0.6711 | AP: 52.42 | TP:64.67, FP:72.62, FN:33.69, TN:78.72 | ACC: 57.43
+INFO:root:VAL   | Epoch: [16/100] | Loss: 0.7224 | AP: 37.47 | TP:68.0, FP:107.0, FN:61.0, TN:77.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [17/100] | Loss: 0.6688 | AP: 51.96 | TP:61.82, FP:68.67, FN:36.47, TN:82.74 | ACC: 57.89
+INFO:root:VAL   | Epoch: [17/100] | Loss: 0.7251 | AP: 37.26 | TP:70.0, FP:110.0, FN:59.0, TN:74.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [18/100] | Loss: 0.6693 | AP: 52.13 | TP:64.39, FP:70.30, FN:33.83, TN:81.18 | ACC: 58.31
+INFO:root:VAL   | Epoch: [18/100] | Loss: 0.7259 | AP: 37.56 | TP:68.0, FP:108.0, FN:61.0, TN:76.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [19/100] | Loss: 0.6699 | AP: 51.98 | TP:66.96, FP:75.60, FN:31.88, TN:75.26 | ACC: 56.68
+INFO:root:VAL   | Epoch: [19/100] | Loss: 0.7280 | AP: 37.44 | TP:68.0, FP:109.0, FN:61.0, TN:75.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [20/100] | Loss: 0.6683 | AP: 52.65 | TP:56.19, FP:57.75, FN:42.03, TN:93.73 | ACC: 60.06
+INFO:root:VAL   | Epoch: [20/100] | Loss: 0.7244 | AP: 38.14 | TP:63.0, FP:98.0, FN:66.0, TN:86.0 | ACC: 47.60
+INFO:root:TRAIN | Epoch: [21/100] | Loss: 0.6682 | AP: 53.01 | TP:65.38, FP:73.48, FN:33.05, TN:77.80 | ACC: 57.35
+INFO:root:VAL   | Epoch: [21/100] | Loss: 0.7277 | AP: 37.60 | TP:70.0, FP:108.0, FN:59.0, TN:76.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [22/100] | Loss: 0.6656 | AP: 53.43 | TP:62.18, FP:66.08, FN:36.11, TN:85.33 | ACC: 59.31
+INFO:root:VAL   | Epoch: [22/100] | Loss: 0.7280 | AP: 38.28 | TP:61.0, FP:94.0, FN:68.0, TN:90.0 | ACC: 48.24
+INFO:root:TRAIN | Epoch: [23/100] | Loss: 0.6655 | AP: 53.56 | TP:55.38, FP:56.34, FN:42.84, TN:95.14 | ACC: 60.27
+INFO:root:VAL   | Epoch: [23/100] | Loss: 0.7346 | AP: 37.28 | TP:69.0, FP:109.0, FN:60.0, TN:75.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [24/100] | Loss: 0.6646 | AP: 53.35 | TP:66.19, FP:74.26, FN:32.72, TN:76.53 | ACC: 57.22
+INFO:root:VAL   | Epoch: [24/100] | Loss: 0.7353 | AP: 37.34 | TP:68.0, FP:106.0, FN:61.0, TN:78.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [25/100] | Loss: 0.6617 | AP: 54.24 | TP:59.08, FP:60.66, FN:39.08, TN:90.89 | ACC: 60.18
+INFO:root:VAL   | Epoch: [25/100] | Loss: 0.7344 | AP: 37.72 | TP:63.0, FP:98.0, FN:66.0, TN:86.0 | ACC: 47.60
+INFO:root:TRAIN | Epoch: [26/100] | Loss: 0.6620 | AP: 54.73 | TP:63.89, FP:69.11, FN:34.13, TN:82.58 | ACC: 58.47
+INFO:root:VAL   | Epoch: [26/100] | Loss: 0.7397 | AP: 37.16 | TP:68.0, FP:103.0, FN:61.0, TN:81.0 | ACC: 47.60
+INFO:root:TRAIN | Epoch: [27/100] | Loss: 0.6617 | AP: 54.65 | TP:57.72, FP:59.44, FN:40.09, TN:92.45 | ACC: 60.27
+INFO:root:VAL   | Epoch: [27/100] | Loss: 0.7376 | AP: 37.52 | TP:64.0, FP:98.0, FN:65.0, TN:86.0 | ACC: 47.92
+INFO:root:TRAIN | Epoch: [28/100] | Loss: 0.6585 | AP: 55.11 | TP:65.81, FP:70.60, FN:32.54, TN:80.74 | ACC: 58.64
+INFO:root:VAL   | Epoch: [28/100] | Loss: 0.7424 | AP: 37.17 | TP:69.0, FP:104.0, FN:60.0, TN:80.0 | ACC: 47.60
+INFO:root:TRAIN | Epoch: [29/100] | Loss: 0.6615 | AP: 54.66 | TP:57.95, FP:58.91, FN:39.73, TN:93.12 | ACC: 60.56
+INFO:root:VAL   | Epoch: [29/100] | Loss: 0.7428 | AP: 37.61 | TP:61.0, FP:97.0, FN:68.0, TN:87.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [30/100] | Loss: 0.6581 | AP: 55.85 | TP:67.84, FP:73.17, FN:30.65, TN:78.03 | ACC: 58.35
+INFO:root:VAL   | Epoch: [30/100] | Loss: 0.7468 | AP: 37.18 | TP:69.0, FP:105.0, FN:60.0, TN:79.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [31/100] | Loss: 0.6576 | AP: 55.23 | TP:57.20, FP:55.57, FN:41.09, TN:95.84 | ACC: 61.52
+INFO:root:VAL   | Epoch: [31/100] | Loss: 0.7420 | AP: 37.96 | TP:54.0, FP:91.0, FN:75.0, TN:93.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [32/100] | Loss: 0.6546 | AP: 56.64 | TP:64.13, FP:65.62, FN:34.44, TN:85.52 | ACC: 59.77
+INFO:root:VAL   | Epoch: [32/100] | Loss: 0.7529 | AP: 37.04 | TP:69.0, FP:110.0, FN:60.0, TN:74.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [33/100] | Loss: 0.6544 | AP: 56.07 | TP:64.90, FP:66.87, FN:33.60, TN:84.34 | ACC: 59.77
+INFO:root:VAL   | Epoch: [33/100] | Loss: 0.7457 | AP: 37.97 | TP:50.0, FP:86.0, FN:79.0, TN:98.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [34/100] | Loss: 0.6541 | AP: 56.20 | TP:55.70, FP:52.88, FN:42.45, TN:98.67 | ACC: 61.85
+INFO:root:VAL   | Epoch: [34/100] | Loss: 0.7507 | AP: 37.52 | TP:62.0, FP:100.0, FN:67.0, TN:84.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [35/100] | Loss: 0.6502 | AP: 57.04 | TP:65.61, FP:65.05, FN:33.37, TN:85.67 | ACC: 60.35
+INFO:root:VAL   | Epoch: [35/100] | Loss: 0.7517 | AP: 37.80 | TP:56.0, FP:93.0, FN:73.0, TN:91.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [36/100] | Loss: 0.6510 | AP: 57.21 | TP:55.70, FP:50.69, FN:42.31, TN:100.99 | ACC: 62.81
+INFO:root:VAL   | Epoch: [36/100] | Loss: 0.7565 | AP: 37.40 | TP:61.0, FP:99.0, FN:68.0, TN:85.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [37/100] | Loss: 0.6486 | AP: 57.20 | TP:64.29, FP:63.03, FN:33.93, TN:88.45 | ACC: 61.27
+INFO:root:VAL   | Epoch: [37/100] | Loss: 0.7636 | AP: 37.07 | TP:66.0, FP:104.0, FN:63.0, TN:80.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [38/100] | Loss: 0.6477 | AP: 57.62 | TP:61.51, FP:59.07, FN:36.71, TN:92.41 | ACC: 61.81
+INFO:root:VAL   | Epoch: [38/100] | Loss: 0.7628 | AP: 37.62 | TP:56.0, FP:92.0, FN:73.0, TN:92.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [39/100] | Loss: 0.6455 | AP: 57.62 | TP:61.87, FP:59.57, FN:36.28, TN:91.98 | ACC: 61.73
+INFO:root:VAL   | Epoch: [39/100] | Loss: 0.7635 | AP: 37.55 | TP:58.0, FP:97.0, FN:71.0, TN:87.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [40/100] | Loss: 0.6438 | AP: 58.58 | TP:62.68, FP:56.67, FN:35.54, TN:94.81 | ACC: 62.85
+INFO:root:VAL   | Epoch: [40/100] | Loss: 0.7669 | AP: 37.67 | TP:56.0, FP:98.0, FN:73.0, TN:86.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [41/100] | Loss: 0.6428 | AP: 58.86 | TP:60.11, FP:55.02, FN:38.11, TN:96.47 | ACC: 62.69
+INFO:root:VAL   | Epoch: [41/100] | Loss: 0.7695 | AP: 37.64 | TP:61.0, FP:100.0, FN:68.0, TN:84.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [42/100] | Loss: 0.6422 | AP: 58.90 | TP:62.55, FP:60.84, FN:35.67, TN:90.64 | ACC: 61.31
+INFO:root:VAL   | Epoch: [42/100] | Loss: 0.7715 | AP: 37.81 | TP:58.0, FP:96.0, FN:71.0, TN:88.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [43/100] | Loss: 0.6400 | AP: 59.33 | TP:58.75, FP:54.34, FN:39.06, TN:97.56 | ACC: 62.69
+INFO:root:VAL   | Epoch: [43/100] | Loss: 0.7853 | AP: 37.08 | TP:66.0, FP:110.0, FN:63.0, TN:74.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [44/100] | Loss: 0.6417 | AP: 58.51 | TP:64.56, FP:62.35, FN:33.39, TN:89.41 | ACC: 61.56
+INFO:root:VAL   | Epoch: [44/100] | Loss: 0.7726 | AP: 37.79 | TP:55.0, FP:89.0, FN:74.0, TN:95.0 | ACC: 47.92
+INFO:root:TRAIN | Epoch: [45/100] | Loss: 0.6394 | AP: 58.82 | TP:62.49, FP:60.46, FN:35.39, TN:91.37 | ACC: 61.81
+INFO:root:VAL   | Epoch: [45/100] | Loss: 0.7719 | AP: 37.71 | TP:60.0, FP:96.0, FN:69.0, TN:88.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [46/100] | Loss: 0.6345 | AP: 60.84 | TP:61.82, FP:54.74, FN:36.47, TN:96.67 | ACC: 63.36
+INFO:root:VAL   | Epoch: [46/100] | Loss: 0.7805 | AP: 37.63 | TP:62.0, FP:103.0, FN:67.0, TN:81.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [47/100] | Loss: 0.6341 | AP: 60.89 | TP:62.35, FP:58.80, FN:35.60, TN:92.96 | ACC: 62.27
+INFO:root:VAL   | Epoch: [47/100] | Loss: 0.7814 | AP: 37.73 | TP:63.0, FP:102.0, FN:66.0, TN:82.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [48/100] | Loss: 0.6368 | AP: 60.04 | TP:63.43, FP:58.18, FN:34.93, TN:93.16 | ACC: 62.77
+INFO:root:VAL   | Epoch: [48/100] | Loss: 0.7729 | AP: 38.13 | TP:58.0, FP:98.0, FN:71.0, TN:86.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [49/100] | Loss: 0.6319 | AP: 60.91 | TP:66.48, FP:61.23, FN:31.95, TN:90.05 | ACC: 62.48
+INFO:root:VAL   | Epoch: [49/100] | Loss: 0.7819 | AP: 38.07 | TP:56.0, FP:95.0, FN:73.0, TN:89.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [50/100] | Loss: 0.6307 | AP: 59.98 | TP:60.82, FP:52.62, FN:37.40, TN:98.86 | ACC: 63.98
+INFO:root:VAL   | Epoch: [50/100] | Loss: 0.7892 | AP: 37.77 | TP:59.0, FP:101.0, FN:70.0, TN:83.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [51/100] | Loss: 0.6304 | AP: 61.16 | TP:66.11, FP:63.00, FN:32.25, TN:88.35 | ACC: 61.94
+INFO:root:VAL   | Epoch: [51/100] | Loss: 0.7717 | AP: 39.38 | TP:53.0, FP:86.0, FN:76.0, TN:98.0 | ACC: 48.24
+INFO:root:TRAIN | Epoch: [52/100] | Loss: 0.6325 | AP: 60.95 | TP:58.18, FP:49.42, FN:40.18, TN:101.92 | ACC: 64.07
+INFO:root:VAL   | Epoch: [52/100] | Loss: 0.7856 | AP: 38.28 | TP:66.0, FP:104.0, FN:63.0, TN:80.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [53/100] | Loss: 0.6277 | AP: 61.21 | TP:67.72, FP:60.75, FN:30.57, TN:90.67 | ACC: 63.31
+INFO:root:VAL   | Epoch: [53/100] | Loss: 0.7788 | AP: 39.04 | TP:49.0, FP:85.0, FN:80.0, TN:99.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [54/100] | Loss: 0.6307 | AP: 61.31 | TP:58.85, FP:48.39, FN:39.64, TN:102.82 | ACC: 64.65
+INFO:root:VAL   | Epoch: [54/100] | Loss: 0.7878 | AP: 38.17 | TP:68.0, FP:105.0, FN:61.0, TN:79.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [55/100] | Loss: 0.6224 | AP: 62.12 | TP:64.55, FP:54.87, FN:33.88, TN:96.41 | ACC: 64.32
+INFO:root:VAL   | Epoch: [55/100] | Loss: 0.7848 | AP: 38.46 | TP:58.0, FP:98.0, FN:71.0, TN:86.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [56/100] | Loss: 0.6198 | AP: 63.28 | TP:62.23, FP:52.13, FN:36.06, TN:99.28 | ACC: 64.77
+INFO:root:VAL   | Epoch: [56/100] | Loss: 0.7996 | AP: 37.49 | TP:71.0, FP:111.0, FN:58.0, TN:73.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [57/100] | Loss: 0.6189 | AP: 62.29 | TP:67.76, FP:59.65, FN:30.80, TN:91.49 | ACC: 63.73
+INFO:root:VAL   | Epoch: [57/100] | Loss: 0.7936 | AP: 38.62 | TP:55.0, FP:99.0, FN:74.0, TN:85.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [58/100] | Loss: 0.6169 | AP: 63.38 | TP:63.46, FP:50.69, FN:34.63, TN:100.92 | ACC: 65.73
+INFO:root:VAL   | Epoch: [58/100] | Loss: 0.8029 | AP: 38.10 | TP:67.0, FP:105.0, FN:62.0, TN:79.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [59/100] | Loss: 0.6134 | AP: 63.66 | TP:71.25, FP:62.10, FN:27.18, TN:89.18 | ACC: 64.19
+INFO:root:VAL   | Epoch: [59/100] | Loss: 0.7867 | AP: 39.91 | TP:52.0, FP:79.0, FN:77.0, TN:105.0 | ACC: 50.16
+INFO:root:TRAIN | Epoch: [60/100] | Loss: 0.6133 | AP: 64.82 | TP:60.19, FP:46.64, FN:38.17, TN:104.70 | ACC: 66.07
+INFO:root:VAL   | Epoch: [60/100] | Loss: 0.8078 | AP: 38.06 | TP:70.0, FP:105.0, FN:59.0, TN:79.0 | ACC: 47.60
+INFO:root:TRAIN | Epoch: [61/100] | Loss: 0.6111 | AP: 64.02 | TP:63.11, FP:49.75, FN:35.52, TN:101.32 | ACC: 65.94
+INFO:root:VAL   | Epoch: [61/100] | Loss: 0.8127 | AP: 38.42 | TP:67.0, FP:105.0, FN:62.0, TN:79.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [62/100] | Loss: 0.6091 | AP: 64.67 | TP:66.32, FP:55.76, FN:32.25, TN:95.38 | ACC: 64.90
+INFO:root:VAL   | Epoch: [62/100] | Loss: 0.8085 | AP: 39.24 | TP:55.0, FP:93.0, FN:74.0, TN:91.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [63/100] | Loss: 0.6054 | AP: 65.49 | TP:64.92, FP:47.10, FN:33.44, TN:104.24 | ACC: 67.74
+INFO:root:VAL   | Epoch: [63/100] | Loss: 0.8108 | AP: 39.03 | TP:64.0, FP:104.0, FN:65.0, TN:80.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [64/100] | Loss: 0.6105 | AP: 64.58 | TP:64.86, FP:49.18, FN:33.43, TN:102.24 | ACC: 66.90
+INFO:root:VAL   | Epoch: [64/100] | Loss: 0.8148 | AP: 38.47 | TP:64.0, FP:101.0, FN:65.0, TN:83.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [65/100] | Loss: 0.6068 | AP: 64.85 | TP:65.58, FP:53.17, FN:32.16, TN:98.79 | ACC: 66.03
+INFO:root:VAL   | Epoch: [65/100] | Loss: 0.8042 | AP: 39.73 | TP:54.0, FP:93.0, FN:75.0, TN:91.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [66/100] | Loss: 0.6090 | AP: 64.68 | TP:66.37, FP:55.52, FN:31.51, TN:96.30 | ACC: 65.36
+INFO:root:VAL   | Epoch: [66/100] | Loss: 0.8058 | AP: 39.99 | TP:54.0, FP:92.0, FN:75.0, TN:92.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [67/100] | Loss: 0.6060 | AP: 65.01 | TP:64.96, FP:51.35, FN:32.92, TN:100.47 | ACC: 66.36
+INFO:root:VAL   | Epoch: [67/100] | Loss: 0.8243 | AP: 39.09 | TP:58.0, FP:103.0, FN:71.0, TN:81.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [68/100] | Loss: 0.6016 | AP: 65.81 | TP:67.70, FP:52.15, FN:30.86, TN:98.99 | ACC: 66.90
+INFO:root:VAL   | Epoch: [68/100] | Loss: 0.8166 | AP: 39.47 | TP:59.0, FP:101.0, FN:70.0, TN:83.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [69/100] | Loss: 0.6021 | AP: 65.83 | TP:68.14, FP:54.97, FN:29.95, TN:96.65 | ACC: 66.03
+INFO:root:VAL   | Epoch: [69/100] | Loss: 0.8116 | AP: 39.84 | TP:57.0, FP:94.0, FN:72.0, TN:90.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [70/100] | Loss: 0.5938 | AP: 67.37 | TP:65.87, FP:51.47, FN:32.07, TN:100.28 | ACC: 66.40
+INFO:root:VAL   | Epoch: [70/100] | Loss: 0.8330 | AP: 38.73 | TP:64.0, FP:106.0, FN:65.0, TN:78.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [71/100] | Loss: 0.5986 | AP: 65.78 | TP:73.90, FP:60.01, FN:25.14, TN:90.65 | ACC: 66.07
+INFO:root:VAL   | Epoch: [71/100] | Loss: 0.8313 | AP: 41.15 | TP:41.0, FP:72.0, FN:88.0, TN:112.0 | ACC: 48.88
+INFO:root:TRAIN | Epoch: [72/100] | Loss: 0.6135 | AP: 64.98 | TP:59.80, FP:45.74, FN:37.73, TN:106.42 | ACC: 66.78
+INFO:root:VAL   | Epoch: [72/100] | Loss: 0.8483 | AP: 37.79 | TP:74.0, FP:120.0, FN:55.0, TN:64.0 | ACC: 44.09
+INFO:root:TRAIN | Epoch: [73/100] | Loss: 0.5986 | AP: 65.60 | TP:63.97, FP:47.45, FN:33.98, TN:104.30 | ACC: 67.36
+INFO:root:VAL   | Epoch: [73/100] | Loss: 0.8308 | AP: 38.93 | TP:65.0, FP:110.0, FN:64.0, TN:74.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [74/100] | Loss: 0.5980 | AP: 66.98 | TP:71.87, FP:60.55, FN:26.56, TN:90.73 | ACC: 65.36
+INFO:root:VAL   | Epoch: [74/100] | Loss: 0.8185 | AP: 41.27 | TP:46.0, FP:81.0, FN:83.0, TN:103.0 | ACC: 47.60
+INFO:root:TRAIN | Epoch: [75/100] | Loss: 0.5953 | AP: 67.40 | TP:65.07, FP:48.50, FN:33.57, TN:102.57 | ACC: 67.20
+INFO:root:VAL   | Epoch: [75/100] | Loss: 0.8361 | AP: 38.80 | TP:74.0, FP:113.0, FN:55.0, TN:71.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [76/100] | Loss: 0.5951 | AP: 66.77 | TP:62.49, FP:44.55, FN:36.28, TN:106.38 | ACC: 67.49
+INFO:root:VAL   | Epoch: [76/100] | Loss: 0.8439 | AP: 38.64 | TP:61.0, FP:106.0, FN:68.0, TN:78.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [77/100] | Loss: 0.5874 | AP: 68.00 | TP:67.29, FP:49.93, FN:31.13, TN:101.35 | ACC: 67.61
+INFO:root:VAL   | Epoch: [77/100] | Loss: 0.8374 | AP: 39.55 | TP:55.0, FP:100.0, FN:74.0, TN:84.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [78/100] | Loss: 0.5926 | AP: 66.63 | TP:68.49, FP:52.84, FN:29.94, TN:98.44 | ACC: 66.86
+INFO:root:VAL   | Epoch: [78/100] | Loss: 0.8286 | AP: 40.70 | TP:50.0, FP:95.0, FN:79.0, TN:89.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [79/100] | Loss: 0.5887 | AP: 67.85 | TP:64.72, FP:46.75, FN:33.37, TN:104.87 | ACC: 67.82
+INFO:root:VAL   | Epoch: [79/100] | Loss: 0.8577 | AP: 38.47 | TP:73.0, FP:115.0, FN:56.0, TN:69.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [80/100] | Loss: 0.5853 | AP: 67.83 | TP:66.19, FP:50.21, FN:31.48, TN:101.82 | ACC: 67.45
+INFO:root:VAL   | Epoch: [80/100] | Loss: 0.8495 | AP: 39.75 | TP:54.0, FP:92.0, FN:75.0, TN:92.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [81/100] | Loss: 0.5842 | AP: 68.75 | TP:69.27, FP:51.67, FN:28.88, TN:99.88 | ACC: 67.57
+INFO:root:VAL   | Epoch: [81/100] | Loss: 0.8524 | AP: 39.31 | TP:63.0, FP:104.0, FN:66.0, TN:80.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [82/100] | Loss: 0.5806 | AP: 69.37 | TP:69.66, FP:51.96, FN:28.29, TN:99.79 | ACC: 67.90
+INFO:root:VAL   | Epoch: [82/100] | Loss: 0.8314 | AP: 40.79 | TP:49.0, FP:93.0, FN:80.0, TN:91.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [83/100] | Loss: 0.5741 | AP: 70.62 | TP:68.11, FP:46.10, FN:30.18, TN:105.31 | ACC: 69.62
+INFO:root:VAL   | Epoch: [83/100] | Loss: 0.8640 | AP: 38.62 | TP:67.0, FP:112.0, FN:62.0, TN:72.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [84/100] | Loss: 0.5789 | AP: 69.66 | TP:66.05, FP:46.65, FN:31.63, TN:105.38 | ACC: 68.78
+INFO:root:VAL   | Epoch: [84/100] | Loss: 0.8730 | AP: 39.45 | TP:61.0, FP:100.0, FN:68.0, TN:84.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [85/100] | Loss: 0.5815 | AP: 69.59 | TP:71.17, FP:52.75, FN:27.67, TN:98.12 | ACC: 67.95
+INFO:root:VAL   | Epoch: [85/100] | Loss: 0.8494 | AP: 40.88 | TP:48.0, FP:92.0, FN:81.0, TN:92.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [86/100] | Loss: 0.5746 | AP: 70.46 | TP:69.37, FP:51.05, FN:29.19, TN:100.09 | ACC: 67.90
+INFO:root:VAL   | Epoch: [86/100] | Loss: 0.8499 | AP: 39.57 | TP:61.0, FP:98.0, FN:68.0, TN:86.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [87/100] | Loss: 0.5826 | AP: 68.42 | TP:65.51, FP:45.86, FN:32.57, TN:105.75 | ACC: 68.53
+INFO:root:VAL   | Epoch: [87/100] | Loss: 0.8642 | AP: 39.46 | TP:59.0, FP:102.0, FN:70.0, TN:82.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [88/100] | Loss: 0.5768 | AP: 69.41 | TP:67.53, FP:46.69, FN:30.69, TN:104.79 | ACC: 69.16
+INFO:root:VAL   | Epoch: [88/100] | Loss: 0.8675 | AP: 38.85 | TP:58.0, FP:100.0, FN:71.0, TN:84.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [89/100] | Loss: 0.5711 | AP: 70.23 | TP:69.81, FP:47.78, FN:28.14, TN:103.97 | ACC: 69.41
+INFO:root:VAL   | Epoch: [89/100] | Loss: 0.8513 | AP: 39.89 | TP:56.0, FP:99.0, FN:73.0, TN:85.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [90/100] | Loss: 0.5620 | AP: 71.95 | TP:69.27, FP:43.41, FN:28.74, TN:108.27 | ACC: 71.12
+INFO:root:VAL   | Epoch: [90/100] | Loss: 0.8750 | AP: 39.12 | TP:61.0, FP:100.0, FN:68.0, TN:84.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [91/100] | Loss: 0.5701 | AP: 69.88 | TP:70.44, FP:49.06, FN:28.06, TN:102.15 | ACC: 69.07
+INFO:root:VAL   | Epoch: [91/100] | Loss: 0.8784 | AP: 40.45 | TP:56.0, FP:95.0, FN:73.0, TN:89.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [92/100] | Loss: 0.5683 | AP: 70.81 | TP:67.77, FP:46.63, FN:30.25, TN:105.05 | ACC: 69.41
+INFO:root:VAL   | Epoch: [92/100] | Loss: 0.8625 | AP: 40.80 | TP:63.0, FP:106.0, FN:66.0, TN:78.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [93/100] | Loss: 0.5656 | AP: 70.69 | TP:68.96, FP:46.18, FN:29.94, TN:104.62 | ACC: 69.49
+INFO:root:VAL   | Epoch: [93/100] | Loss: 0.8867 | AP: 39.28 | TP:60.0, FP:102.0, FN:69.0, TN:82.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [94/100] | Loss: 0.5621 | AP: 71.30 | TP:67.55, FP:43.69, FN:30.46, TN:107.99 | ACC: 70.28
+INFO:root:VAL   | Epoch: [94/100] | Loss: 0.8909 | AP: 39.02 | TP:60.0, FP:101.0, FN:69.0, TN:83.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [95/100] | Loss: 0.5665 | AP: 70.48 | TP:69.46, FP:50.56, FN:28.83, TN:100.85 | ACC: 68.24
+INFO:root:VAL   | Epoch: [95/100] | Loss: 0.8880 | AP: 40.17 | TP:61.0, FP:105.0, FN:68.0, TN:79.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [96/100] | Loss: 0.5597 | AP: 72.06 | TP:65.24, FP:41.27, FN:32.44, TN:110.76 | ACC: 70.70
+INFO:root:VAL   | Epoch: [96/100] | Loss: 0.9350 | AP: 36.90 | TP:80.0, FP:123.0, FN:49.0, TN:61.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [97/100] | Loss: 0.5744 | AP: 70.26 | TP:71.96, FP:50.26, FN:26.39, TN:101.09 | ACC: 69.28
+INFO:root:VAL   | Epoch: [97/100] | Loss: 0.8931 | AP: 39.79 | TP:51.0, FP:91.0, FN:78.0, TN:93.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [98/100] | Loss: 0.5604 | AP: 71.52 | TP:70.05, FP:47.68, FN:28.72, TN:103.25 | ACC: 69.41
+INFO:root:VAL   | Epoch: [98/100] | Loss: 0.8836 | AP: 39.63 | TP:61.0, FP:106.0, FN:68.0, TN:78.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [99/100] | Loss: 0.5649 | AP: 71.59 | TP:70.61, FP:46.02, FN:27.41, TN:105.66 | ACC: 70.70
+INFO:root:VAL   | Epoch: [99/100] | Loss: 0.8995 | AP: 38.70 | TP:66.0, FP:103.0, FN:63.0, TN:81.0 | ACC: 46.96
+INFO:root:### Training from epoch 0 -> 99 finished in (2.27) minutes
+INFO:root:### Best validation AP: 48.31 in epoch 0
+INFO:root:# Test Set | Loss: 0.6925 | AP: 40.35 | TP:237.0, FP:346.0, FN:0.0, TN:0.0 | ACC: 40.65
+INFO:root:Namespace(aggregation='average', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=20, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='TCN', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/TCN_layers2_stride5_average_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/TCN_layers2_stride5_average_lr0.0001', temp_stride=5)
+INFO:root:TemporalConvNet(
+  (conv): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+  (layers): ModuleList(
+    (0): Sequential(
+      (0): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+      (1): Chomp1d()
+      (2): ReLU()
+    )
+    (1): TemporalBlock(
+      (conv1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (relu): ReLU()
+    )
+    (2): TemporalBlock(
+      (conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (downsample): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+      (relu): ReLU()
+    )
+  )
+  (pooling): AdaptiveAvgPool1d(output_size=1)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+)
+INFO:root:=> Loading 4792 samples for train
+INFO:root:=> Loading 626 samples for val
+INFO:root:=> Loading 1166 samples for test
+INFO:root:TRAIN | Epoch: [0/20] | Loss: 0.6876 | AP: 40.96 | TP:99.78, FP:153.46, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [0/20] | Loss: 0.6867 | AP: 34.60 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:=> AP improved (34.60) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/20] | Loss: 0.6842 | AP: 43.55 | TP:99.64, FP:153.59, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [1/20] | Loss: 0.6891 | AP: 33.10 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [2/20] | Loss: 0.6816 | AP: 45.78 | TP:99.73, FP:153.50, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [2/20] | Loss: 0.6917 | AP: 33.22 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [3/20] | Loss: 0.6789 | AP: 47.83 | TP:99.75, FP:153.38, FN:0.00, TN:0.11 | ACC: 39.40
+INFO:root:VAL   | Epoch: [3/20] | Loss: 0.6943 | AP: 34.13 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [4/20] | Loss: 0.6752 | AP: 48.15 | TP:98.79, FP:150.10, FN:0.98, TN:3.36 | ACC: 40.30
+INFO:root:VAL   | Epoch: [4/20] | Loss: 0.7010 | AP: 34.21 | TP:122.0, FP:172.5, FN:7.0, TN:11.5 | ACC: 42.65
+INFO:root:TRAIN | Epoch: [5/20] | Loss: 0.6719 | AP: 49.18 | TP:92.16, FP:131.64, FN:7.73, TN:21.71 | ACC: 44.87
+INFO:root:VAL   | Epoch: [5/20] | Loss: 0.7034 | AP: 35.76 | TP:106.5, FP:152.0, FN:22.5, TN:32.0 | ACC: 44.25
+INFO:root:=> AP improved (35.76) improved at epoch 5 | saving best model!
+INFO:root:TRAIN | Epoch: [6/20] | Loss: 0.6687 | AP: 49.84 | TP:83.96, FP:112.67, FN:15.74, TN:40.86 | ACC: 49.27
+INFO:root:VAL   | Epoch: [6/20] | Loss: 0.7119 | AP: 35.57 | TP:90.5, FP:142.5, FN:38.5, TN:41.5 | ACC: 42.17
+INFO:root:TRAIN | Epoch: [7/20] | Loss: 0.6659 | AP: 50.89 | TP:82.69, FP:112.19, FN:16.98, TN:41.37 | ACC: 49.06
+INFO:root:VAL   | Epoch: [7/20] | Loss: 0.7117 | AP: 36.68 | TP:88.5, FP:137.0, FN:40.5, TN:47.0 | ACC: 43.29
+INFO:root:=> AP improved (36.68) improved at epoch 7 | saving best model!
+INFO:root:TRAIN | Epoch: [8/20] | Loss: 0.6657 | AP: 51.05 | TP:80.58, FP:105.42, FN:19.24, TN:47.99 | ACC: 50.75
+INFO:root:VAL   | Epoch: [8/20] | Loss: 0.7090 | AP: 37.56 | TP:87.0, FP:134.0, FN:42.0, TN:50.0 | ACC: 43.77
+INFO:root:=> AP improved (37.56) improved at epoch 8 | saving best model!
+INFO:root:TRAIN | Epoch: [9/20] | Loss: 0.6625 | AP: 51.93 | TP:80.25, FP:103.17, FN:19.35, TN:50.47 | ACC: 51.61
+INFO:root:VAL   | Epoch: [9/20] | Loss: 0.7136 | AP: 37.13 | TP:92.5, FP:134.5, FN:36.5, TN:49.5 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [10/20] | Loss: 0.6617 | AP: 51.89 | TP:79.25, FP:100.95, FN:20.43, TN:52.61 | ACC: 52.05
+INFO:root:VAL   | Epoch: [10/20] | Loss: 0.7115 | AP: 38.30 | TP:86.0, FP:135.5, FN:43.0, TN:48.5 | ACC: 42.97
+INFO:root:=> AP improved (38.30) improved at epoch 10 | saving best model!
+INFO:root:TRAIN | Epoch: [11/20] | Loss: 0.6598 | AP: 52.56 | TP:79.87, FP:100.80, FN:19.73, TN:52.84 | ACC: 52.44
+INFO:root:VAL   | Epoch: [11/20] | Loss: 0.7203 | AP: 37.08 | TP:89.5, FP:138.0, FN:39.5, TN:46.0 | ACC: 43.29
+INFO:root:TRAIN | Epoch: [12/20] | Loss: 0.6575 | AP: 53.84 | TP:78.86, FP:97.84, FN:20.80, TN:55.74 | ACC: 53.15
+INFO:root:VAL   | Epoch: [12/20] | Loss: 0.7189 | AP: 37.46 | TP:84.0, FP:137.5, FN:45.0, TN:46.5 | ACC: 41.69
+INFO:root:TRAIN | Epoch: [13/20] | Loss: 0.6572 | AP: 53.83 | TP:80.16, FP:98.97, FN:19.68, TN:54.43 | ACC: 53.13
+INFO:root:VAL   | Epoch: [13/20] | Loss: 0.7246 | AP: 37.76 | TP:80.5, FP:124.0, FN:48.5, TN:60.0 | ACC: 44.89
+INFO:root:TRAIN | Epoch: [14/20] | Loss: 0.6544 | AP: 54.26 | TP:79.31, FP:95.98, FN:20.36, TN:57.58 | ACC: 54.05
+INFO:root:VAL   | Epoch: [14/20] | Loss: 0.7230 | AP: 38.15 | TP:81.5, FP:127.5, FN:47.5, TN:56.5 | ACC: 44.09
+INFO:root:TRAIN | Epoch: [15/20] | Loss: 0.6530 | AP: 54.82 | TP:76.78, FP:92.65, FN:22.82, TN:60.99 | ACC: 54.42
+INFO:root:VAL   | Epoch: [15/20] | Loss: 0.7343 | AP: 37.20 | TP:85.0, FP:137.5, FN:44.0, TN:46.5 | ACC: 42.01
+INFO:root:TRAIN | Epoch: [16/20] | Loss: 0.6525 | AP: 55.06 | TP:77.52, FP:91.86, FN:22.15, TN:61.71 | ACC: 55.01
+INFO:root:VAL   | Epoch: [16/20] | Loss: 0.7403 | AP: 36.70 | TP:84.5, FP:141.5, FN:44.5, TN:42.5 | ACC: 40.58
+INFO:root:TRAIN | Epoch: [17/20] | Loss: 0.6502 | AP: 56.04 | TP:75.30, FP:88.79, FN:24.12, TN:65.02 | ACC: 55.40
+INFO:root:VAL   | Epoch: [17/20] | Loss: 0.7462 | AP: 36.73 | TP:79.5, FP:135.0, FN:49.5, TN:49.0 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [18/20] | Loss: 0.6522 | AP: 56.33 | TP:79.32, FP:95.25, FN:20.43, TN:58.24 | ACC: 54.40
+INFO:root:VAL   | Epoch: [18/20] | Loss: 0.7205 | AP: 40.05 | TP:68.0, FP:101.0, FN:61.0, TN:83.0 | ACC: 48.24
+INFO:root:=> AP improved (40.05) improved at epoch 18 | saving best model!
+INFO:root:TRAIN | Epoch: [19/20] | Loss: 0.6486 | AP: 57.11 | TP:79.96, FP:97.52, FN:19.78, TN:55.97 | ACC: 53.76
+INFO:root:VAL   | Epoch: [19/20] | Loss: 0.7261 | AP: 38.86 | TP:75.5, FP:110.5, FN:53.5, TN:73.5 | ACC: 47.60
+INFO:root:### Training from epoch 0 -> 19 finished in (14.83) minutes
+INFO:root:### Best validation AP: 40.05 in epoch 18
+INFO:root:# Test Set | Loss: 0.7193 | AP: 39.68 | TP:139.0, FP:201.0, FN:98.0, TN:145.0 | ACC: 48.71
+INFO:root:Namespace(aggregation='average', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='TCN', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/TCN_layers2_stride5_average_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/TCN_layers2_stride5_average_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:TemporalConvNet(
+  (conv): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+  (layers): ModuleList(
+    (0): Sequential(
+      (0): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+      (1): Chomp1d()
+      (2): ReLU()
+    )
+    (1): TemporalBlock(
+      (conv1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (relu): ReLU()
+    )
+    (2): TemporalBlock(
+      (conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (downsample): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+      (relu): ReLU()
+    )
+  )
+  (pooling): AdaptiveAvgPool1d(output_size=1)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+)
+INFO:root:=> Loading 4792 samples for train
+INFO:root:=> Loading 626 samples for val
+INFO:root:=> Loading 1166 samples for test
+INFO:root:TRAIN | Epoch: [0/30] | Loss: 0.6875 | AP: 41.20 | TP:99.78, FP:153.46, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [0/30] | Loss: 0.6865 | AP: 34.79 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:=> AP improved (34.79) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/30] | Loss: 0.6840 | AP: 43.84 | TP:99.64, FP:153.59, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [1/30] | Loss: 0.6889 | AP: 33.41 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [2/30] | Loss: 0.6816 | AP: 45.79 | TP:99.73, FP:153.50, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [2/30] | Loss: 0.6906 | AP: 34.07 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [3/30] | Loss: 0.6789 | AP: 47.78 | TP:99.75, FP:153.33, FN:0.00, TN:0.16 | ACC: 39.42
+INFO:root:VAL   | Epoch: [3/30] | Loss: 0.6946 | AP: 33.93 | TP:129.0, FP:183.5, FN:0.0, TN:0.5 | ACC: 41.37
+INFO:root:TRAIN | Epoch: [4/30] | Loss: 0.6757 | AP: 48.21 | TP:98.74, FP:150.37, FN:1.04, TN:3.09 | ACC: 40.17
+INFO:root:VAL   | Epoch: [4/30] | Loss: 0.6987 | AP: 35.06 | TP:122.5, FP:174.5, FN:6.5, TN:9.5 | ACC: 42.17
+INFO:root:=> AP improved (35.06) improved at epoch 4 | saving best model!
+INFO:root:TRAIN | Epoch: [5/30] | Loss: 0.6718 | AP: 48.91 | TP:92.71, FP:131.60, FN:7.17, TN:21.75 | ACC: 45.12
+INFO:root:VAL   | Epoch: [5/30] | Loss: 0.7044 | AP: 35.34 | TP:101.5, FP:155.5, FN:27.5, TN:28.5 | ACC: 41.53
+INFO:root:=> AP improved (35.34) improved at epoch 5 | saving best model!
+INFO:root:TRAIN | Epoch: [6/30] | Loss: 0.6687 | AP: 50.17 | TP:84.95, FP:114.77, FN:14.75, TN:38.76 | ACC: 48.81
+INFO:root:VAL   | Epoch: [6/30] | Loss: 0.7095 | AP: 36.05 | TP:92.5, FP:143.0, FN:36.5, TN:41.0 | ACC: 42.65
+INFO:root:=> AP improved (36.05) improved at epoch 6 | saving best model!
+INFO:root:TRAIN | Epoch: [7/30] | Loss: 0.6655 | AP: 51.30 | TP:82.91, FP:110.87, FN:16.76, TN:42.69 | ACC: 49.69
+INFO:root:VAL   | Epoch: [7/30] | Loss: 0.7123 | AP: 37.17 | TP:86.0, FP:137.0, FN:43.0, TN:47.0 | ACC: 42.49
+INFO:root:=> AP improved (37.17) improved at epoch 7 | saving best model!
+INFO:root:TRAIN | Epoch: [8/30] | Loss: 0.6647 | AP: 50.96 | TP:80.53, FP:104.26, FN:19.30, TN:49.15 | ACC: 51.19
+INFO:root:VAL   | Epoch: [8/30] | Loss: 0.7124 | AP: 37.17 | TP:87.5, FP:138.0, FN:41.5, TN:46.0 | ACC: 42.65
+INFO:root:TRAIN | Epoch: [9/30] | Loss: 0.6633 | AP: 51.49 | TP:80.26, FP:103.85, FN:19.34, TN:49.79 | ACC: 51.34
+INFO:root:VAL   | Epoch: [9/30] | Loss: 0.7082 | AP: 38.36 | TP:88.5, FP:138.5, FN:40.5, TN:45.5 | ACC: 42.81
+INFO:root:=> AP improved (38.36) improved at epoch 9 | saving best model!
+INFO:root:TRAIN | Epoch: [10/30] | Loss: 0.6610 | AP: 52.17 | TP:79.20, FP:100.27, FN:20.47, TN:53.29 | ACC: 52.30
+INFO:root:VAL   | Epoch: [10/30] | Loss: 0.7138 | AP: 37.89 | TP:90.0, FP:136.0, FN:39.0, TN:48.0 | ACC: 44.09
+INFO:root:TRAIN | Epoch: [11/30] | Loss: 0.6599 | AP: 52.40 | TP:79.85, FP:101.12, FN:19.75, TN:52.52 | ACC: 52.30
+INFO:root:VAL   | Epoch: [11/30] | Loss: 0.7192 | AP: 37.38 | TP:89.5, FP:141.5, FN:39.5, TN:42.5 | ACC: 42.17
+INFO:root:TRAIN | Epoch: [12/30] | Loss: 0.6575 | AP: 53.73 | TP:79.59, FP:97.71, FN:20.07, TN:55.87 | ACC: 53.51
+INFO:root:VAL   | Epoch: [12/30] | Loss: 0.7208 | AP: 37.06 | TP:86.0, FP:133.5, FN:43.0, TN:50.5 | ACC: 43.61
+INFO:root:TRAIN | Epoch: [13/30] | Loss: 0.6562 | AP: 53.96 | TP:79.44, FP:98.90, FN:20.40, TN:54.50 | ACC: 52.86
+INFO:root:VAL   | Epoch: [13/30] | Loss: 0.7238 | AP: 37.76 | TP:81.0, FP:125.0, FN:48.0, TN:59.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [14/30] | Loss: 0.6543 | AP: 54.34 | TP:79.64, FP:95.84, FN:20.03, TN:57.72 | ACC: 54.22
+INFO:root:VAL   | Epoch: [14/30] | Loss: 0.7229 | AP: 38.05 | TP:83.5, FP:125.5, FN:45.5, TN:58.5 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [15/30] | Loss: 0.6532 | AP: 54.79 | TP:76.88, FP:93.51, FN:22.71, TN:60.13 | ACC: 54.13
+INFO:root:VAL   | Epoch: [15/30] | Loss: 0.7297 | AP: 37.67 | TP:85.5, FP:140.0, FN:43.5, TN:44.0 | ACC: 41.37
+INFO:root:TRAIN | Epoch: [16/30] | Loss: 0.6517 | AP: 55.65 | TP:77.09, FP:93.37, FN:22.59, TN:60.20 | ACC: 54.24
+INFO:root:VAL   | Epoch: [16/30] | Loss: 0.7361 | AP: 37.20 | TP:86.5, FP:139.0, FN:42.5, TN:45.0 | ACC: 42.01
+INFO:root:TRAIN | Epoch: [17/30] | Loss: 0.6504 | AP: 55.88 | TP:75.54, FP:87.61, FN:23.88, TN:66.21 | ACC: 55.97
+INFO:root:VAL   | Epoch: [17/30] | Loss: 0.7325 | AP: 38.03 | TP:85.5, FP:132.0, FN:43.5, TN:52.0 | ACC: 43.93
+INFO:root:TRAIN | Epoch: [18/30] | Loss: 0.6519 | AP: 56.99 | TP:79.82, FP:96.11, FN:19.92, TN:57.38 | ACC: 54.30
+INFO:root:VAL   | Epoch: [18/30] | Loss: 0.7210 | AP: 40.19 | TP:62.5, FP:99.0, FN:66.5, TN:85.0 | ACC: 47.12
+INFO:root:=> AP improved (40.19) improved at epoch 18 | saving best model!
+INFO:root:TRAIN | Epoch: [19/30] | Loss: 0.6494 | AP: 56.43 | TP:79.98, FP:98.17, FN:19.77, TN:55.32 | ACC: 53.48
+INFO:root:VAL   | Epoch: [19/30] | Loss: 0.7255 | AP: 38.92 | TP:77.0, FP:115.0, FN:52.0, TN:69.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [20/30] | Loss: 0.6436 | AP: 57.43 | TP:75.28, FP:81.94, FN:24.46, TN:71.55 | ACC: 57.91
+INFO:root:VAL   | Epoch: [20/30] | Loss: 0.7458 | AP: 37.38 | TP:83.0, FP:134.0, FN:46.0, TN:50.0 | ACC: 42.49
+INFO:root:TRAIN | Epoch: [21/30] | Loss: 0.6386 | AP: 58.40 | TP:78.03, FP:89.55, FN:21.59, TN:64.06 | ACC: 56.16
+INFO:root:VAL   | Epoch: [21/30] | Loss: 0.7415 | AP: 38.39 | TP:73.5, FP:117.5, FN:55.5, TN:66.5 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [22/30] | Loss: 0.6359 | AP: 58.75 | TP:77.34, FP:86.49, FN:22.43, TN:66.98 | ACC: 56.99
+INFO:root:VAL   | Epoch: [22/30] | Loss: 0.7473 | AP: 38.64 | TP:71.5, FP:115.5, FN:57.5, TN:68.5 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [23/30] | Loss: 0.6362 | AP: 58.63 | TP:75.29, FP:82.48, FN:24.27, TN:71.21 | ACC: 57.85
+INFO:root:VAL   | Epoch: [23/30] | Loss: 0.7479 | AP: 38.34 | TP:76.5, FP:121.0, FN:52.5, TN:63.0 | ACC: 44.57
+INFO:root:TRAIN | Epoch: [24/30] | Loss: 0.6315 | AP: 59.45 | TP:78.43, FP:86.50, FN:21.20, TN:67.10 | ACC: 57.47
+INFO:root:VAL   | Epoch: [24/30] | Loss: 0.7536 | AP: 38.86 | TP:75.0, FP:120.5, FN:54.0, TN:63.5 | ACC: 44.25
+INFO:root:TRAIN | Epoch: [25/30] | Loss: 0.6285 | AP: 60.49 | TP:76.86, FP:82.61, FN:22.63, TN:71.14 | ACC: 58.37
+INFO:root:VAL   | Epoch: [25/30] | Loss: 0.7659 | AP: 37.81 | TP:81.5, FP:128.0, FN:47.5, TN:56.0 | ACC: 43.93
+INFO:root:TRAIN | Epoch: [26/30] | Loss: 0.6248 | AP: 60.93 | TP:78.72, FP:84.22, FN:20.92, TN:69.37 | ACC: 58.54
+INFO:root:VAL   | Epoch: [26/30] | Loss: 0.7642 | AP: 38.82 | TP:66.5, FP:102.5, FN:62.5, TN:81.5 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [27/30] | Loss: 0.6251 | AP: 61.08 | TP:76.95, FP:81.74, FN:22.86, TN:71.68 | ACC: 58.72
+INFO:root:VAL   | Epoch: [27/30] | Loss: 0.7560 | AP: 39.78 | TP:68.0, FP:101.5, FN:61.0, TN:82.5 | ACC: 48.08
+INFO:root:TRAIN | Epoch: [28/30] | Loss: 0.6185 | AP: 62.14 | TP:76.58, FP:76.58, FN:23.04, TN:77.04 | ACC: 60.66
+INFO:root:VAL   | Epoch: [28/30] | Loss: 0.7657 | AP: 39.07 | TP:75.0, FP:118.5, FN:54.0, TN:65.5 | ACC: 44.89
+INFO:root:TRAIN | Epoch: [29/30] | Loss: 0.6150 | AP: 62.27 | TP:78.67, FP:77.94, FN:21.14, TN:75.49 | ACC: 60.79
+INFO:root:VAL   | Epoch: [29/30] | Loss: 0.7740 | AP: 39.83 | TP:74.5, FP:114.5, FN:54.5, TN:69.5 | ACC: 46.01
+INFO:root:### Training from epoch 0 -> 29 finished in (24.67) minutes
+INFO:root:### Best validation AP: 40.19 in epoch 18
+INFO:root:# Test Set | Loss: 0.7213 | AP: 39.70 | TP:134.0, FP:191.5, FN:103.0, TN:154.5 | ACC: 49.49
+INFO:root:Namespace(aggregation='average', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='TCN', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/TCN_layers2_stride5_average_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/TCN_layers2_stride5_average_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:TemporalConvNet(
+  (conv): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+  (layers): ModuleList(
+    (0): Sequential(
+      (0): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+      (1): Chomp1d()
+      (2): ReLU()
+    )
+    (1): TemporalBlock(
+      (conv1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (relu): ReLU()
+    )
+    (2): TemporalBlock(
+      (conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (downsample): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+      (relu): ReLU()
+    )
+  )
+  (pooling): AdaptiveAvgPool1d(output_size=1)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:TRAIN | Epoch: [0/30] | Loss: 0.6891 | AP: 39.20 | TP:98.84, FP:150.86, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [0/30] | Loss: 0.6869 | AP: 36.64 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:=> AP improved (36.64) improved at epoch 0 | saving best model!
+INFO:root:Namespace(aggregation='average', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='TCN', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/TCN_layers2_stride5_average_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/TCN_layers2_stride5_average_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:TemporalConvNet(
+  (conv): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+  (layers): ModuleList(
+    (0): Sequential(
+      (0): Conv1d(17, 64, kernel_size=(14,), stride=(7,), padding=(7,))
+      (1): Chomp1d()
+      (2): ReLU()
+    )
+    (1): TemporalBlock(
+      (conv1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (conv2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(2,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (relu): ReLU()
+    )
+    (2): TemporalBlock(
+      (conv1): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+      (layers): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(4,))
+          (1): Chomp1d()
+          (2): ReLU()
+          (3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (downsample): Conv1d(64, 128, kernel_size=(1,), stride=(1,))
+      (relu): ReLU()
+    )
+  )
+  (pooling): AdaptiveAvgPool1d(output_size=1)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:TRAIN | Epoch: [0/30] | Loss: 0.6892 | AP: 39.26 | TP:98.84, FP:150.86, FN:0.00, TN:0.00 | ACC: 39.36
+INFO:root:VAL   | Epoch: [0/30] | Loss: 0.6869 | AP: 36.43 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:=> AP improved (36.43) improved at epoch 0 | saving best model!

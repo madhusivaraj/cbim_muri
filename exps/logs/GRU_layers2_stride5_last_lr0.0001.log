@@ -1,0 +1,191 @@
+INFO:root:Namespace(aggregation='last', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=20, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='GRU', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/GRU_layers2_stride5_last_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/GRU_layers2_stride5_last_lr0.0001', temp_stride=5)
+INFO:root:GRU(
+  (rnn): GRU(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 4792 samples for train
+INFO:root:=> Loading 626 samples for val
+INFO:root:=> Loading 1166 samples for test
+INFO:root:TRAIN | Epoch: [0/20] | Loss: 0.6887 | AP: 42.03 | TP:88.60, FP:137.55, FN:11.06, TN:16.03 | ACC: 41.30
+INFO:root:VAL   | Epoch: [0/20] | Loss: 0.6944 | AP: 31.35 | TP:128.5, FP:183.0, FN:0.5, TN:1.0 | ACC: 41.37
+INFO:root:=> AP improved (31.35) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/20] | Loss: 0.6825 | AP: 43.88 | TP:97.90, FP:149.94, FN:1.88, TN:3.51 | ACC: 40.03
+INFO:root:VAL   | Epoch: [1/20] | Loss: 0.6970 | AP: 32.42 | TP:122.0, FP:171.5, FN:7.0, TN:12.5 | ACC: 42.97
+INFO:root:=> AP improved (32.42) improved at epoch 1 | saving best model!
+INFO:root:TRAIN | Epoch: [2/20] | Loss: 0.6779 | AP: 46.52 | TP:91.60, FP:133.79, FN:8.11, TN:19.74 | ACC: 43.99
+INFO:root:VAL   | Epoch: [2/20] | Loss: 0.7024 | AP: 32.30 | TP:112.5, FP:160.0, FN:16.5, TN:24.0 | ACC: 43.61
+INFO:root:TRAIN | Epoch: [3/20] | Loss: 0.6760 | AP: 46.22 | TP:88.63, FP:124.66, FN:11.00, TN:28.95 | ACC: 46.41
+INFO:root:VAL   | Epoch: [3/20] | Loss: 0.7092 | AP: 32.44 | TP:107.0, FP:157.5, FN:22.0, TN:26.5 | ACC: 42.65
+INFO:root:=> AP improved (32.44) improved at epoch 3 | saving best model!
+INFO:root:TRAIN | Epoch: [4/20] | Loss: 0.6757 | AP: 46.75 | TP:88.86, FP:124.44, FN:10.85, TN:29.10 | ACC: 46.56
+INFO:root:VAL   | Epoch: [4/20] | Loss: 0.7076 | AP: 32.84 | TP:111.0, FP:155.5, FN:18.0, TN:28.5 | ACC: 44.57
+INFO:root:=> AP improved (32.84) improved at epoch 4 | saving best model!
+INFO:root:TRAIN | Epoch: [5/20] | Loss: 0.6745 | AP: 47.64 | TP:87.25, FP:121.23, FN:12.43, TN:32.33 | ACC: 47.20
+INFO:root:VAL   | Epoch: [5/20] | Loss: 0.7093 | AP: 33.53 | TP:104.5, FP:152.0, FN:24.5, TN:32.0 | ACC: 43.61
+INFO:root:=> AP improved (33.53) improved at epoch 5 | saving best model!
+INFO:root:TRAIN | Epoch: [6/20] | Loss: 0.6727 | AP: 48.67 | TP:85.66, FP:117.64, FN:14.14, TN:35.80 | ACC: 47.91
+INFO:root:VAL   | Epoch: [6/20] | Loss: 0.7112 | AP: 33.19 | TP:106.5, FP:153.5, FN:22.5, TN:30.5 | ACC: 43.77
+INFO:root:TRAIN | Epoch: [7/20] | Loss: 0.6718 | AP: 48.68 | TP:87.15, FP:120.46, FN:12.48, TN:33.14 | ACC: 47.52
+INFO:root:VAL   | Epoch: [7/20] | Loss: 0.7119 | AP: 34.20 | TP:103.0, FP:147.5, FN:26.0, TN:36.5 | ACC: 44.57
+INFO:root:=> AP improved (34.20) improved at epoch 7 | saving best model!
+INFO:root:TRAIN | Epoch: [8/20] | Loss: 0.6714 | AP: 48.88 | TP:84.29, FP:111.43, FN:15.43, TN:42.09 | ACC: 49.92
+INFO:root:VAL   | Epoch: [8/20] | Loss: 0.7123 | AP: 34.43 | TP:105.0, FP:152.0, FN:24.0, TN:32.0 | ACC: 43.77
+INFO:root:=> AP improved (34.43) improved at epoch 8 | saving best model!
+INFO:root:TRAIN | Epoch: [9/20] | Loss: 0.6711 | AP: 49.18 | TP:86.46, FP:118.57, FN:13.06, TN:35.15 | ACC: 48.06
+INFO:root:VAL   | Epoch: [9/20] | Loss: 0.7107 | AP: 35.08 | TP:99.5, FP:145.0, FN:29.5, TN:39.0 | ACC: 44.25
+INFO:root:=> AP improved (35.08) improved at epoch 9 | saving best model!
+INFO:root:TRAIN | Epoch: [10/20] | Loss: 0.6693 | AP: 50.64 | TP:86.17, FP:117.02, FN:13.47, TN:36.58 | ACC: 48.43
+INFO:root:VAL   | Epoch: [10/20] | Loss: 0.7121 | AP: 35.22 | TP:102.0, FP:152.5, FN:27.0, TN:31.5 | ACC: 42.65
+INFO:root:=> AP improved (35.22) improved at epoch 10 | saving best model!
+INFO:root:TRAIN | Epoch: [11/20] | Loss: 0.6677 | AP: 50.02 | TP:84.54, FP:111.19, FN:15.22, TN:42.28 | ACC: 50.06
+INFO:root:VAL   | Epoch: [11/20] | Loss: 0.7114 | AP: 36.44 | TP:97.5, FP:147.0, FN:31.5, TN:37.0 | ACC: 42.97
+INFO:root:=> AP improved (36.44) improved at epoch 11 | saving best model!
+INFO:root:TRAIN | Epoch: [12/20] | Loss: 0.6675 | AP: 50.58 | TP:83.61, FP:108.73, FN:16.15, TN:44.74 | ACC: 50.63
+INFO:root:VAL   | Epoch: [12/20] | Loss: 0.7184 | AP: 35.92 | TP:91.0, FP:146.5, FN:38.0, TN:37.5 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [13/20] | Loss: 0.6669 | AP: 50.34 | TP:84.28, FP:110.36, FN:15.37, TN:43.23 | ACC: 50.31
+INFO:root:VAL   | Epoch: [13/20] | Loss: 0.7220 | AP: 35.89 | TP:88.5, FP:147.5, FN:40.5, TN:36.5 | ACC: 39.94
+INFO:root:TRAIN | Epoch: [14/20] | Loss: 0.6663 | AP: 50.73 | TP:83.64, FP:109.77, FN:15.94, TN:43.88 | ACC: 50.42
+INFO:root:VAL   | Epoch: [14/20] | Loss: 0.7166 | AP: 36.95 | TP:90.5, FP:142.5, FN:38.5, TN:41.5 | ACC: 42.17
+INFO:root:=> AP improved (36.95) improved at epoch 14 | saving best model!
+INFO:root:TRAIN | Epoch: [15/20] | Loss: 0.6666 | AP: 50.98 | TP:81.39, FP:105.66, FN:18.16, TN:48.02 | ACC: 51.17
+INFO:root:VAL   | Epoch: [15/20] | Loss: 0.7218 | AP: 36.25 | TP:95.0, FP:150.5, FN:34.0, TN:33.5 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [16/20] | Loss: 0.6647 | AP: 50.91 | TP:82.23, FP:108.30, FN:17.38, TN:45.33 | ACC: 50.44
+INFO:root:VAL   | Epoch: [16/20] | Loss: 0.7228 | AP: 36.93 | TP:92.0, FP:144.5, FN:37.0, TN:39.5 | ACC: 42.01
+INFO:root:TRAIN | Epoch: [17/20] | Loss: 0.6626 | AP: 51.81 | TP:84.15, FP:107.40, FN:15.44, TN:46.26 | ACC: 51.50
+INFO:root:VAL   | Epoch: [17/20] | Loss: 0.7234 | AP: 38.14 | TP:81.5, FP:132.5, FN:47.5, TN:51.5 | ACC: 42.49
+INFO:root:=> AP improved (38.14) improved at epoch 17 | saving best model!
+INFO:root:TRAIN | Epoch: [18/20] | Loss: 0.6633 | AP: 51.86 | TP:81.44, FP:105.40, FN:18.23, TN:48.16 | ACC: 51.25
+INFO:root:VAL   | Epoch: [18/20] | Loss: 0.7336 | AP: 36.89 | TP:85.5, FP:139.5, FN:43.5, TN:44.5 | ACC: 41.53
+INFO:root:TRAIN | Epoch: [19/20] | Loss: 0.6634 | AP: 51.83 | TP:80.25, FP:101.43, FN:19.53, TN:52.03 | ACC: 52.19
+INFO:root:VAL   | Epoch: [19/20] | Loss: 0.7314 | AP: 37.00 | TP:92.0, FP:147.5, FN:37.0, TN:36.5 | ACC: 41.05
+INFO:root:### Training from epoch 0 -> 19 finished in (17.57) minutes
+INFO:root:### Best validation AP: 38.14 in epoch 17
+INFO:root:# Test Set | Loss: 0.6845 | AP: 42.94 | TP:186.5, FP:237.5, FN:50.5, TN:108.5 | ACC: 50.60
+INFO:root:Namespace(aggregation='last', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='GRU', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/GRU_layers2_stride5_last_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/GRU_layers2_stride5_last_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:GRU(
+  (rnn): GRU(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 4792 samples for train
+INFO:root:=> Loading 626 samples for val
+INFO:root:=> Loading 1166 samples for test
+INFO:root:TRAIN | Epoch: [0/30] | Loss: 0.6888 | AP: 41.52 | TP:89.35, FP:138.35, FN:10.31, TN:15.23 | ACC: 41.28
+INFO:root:VAL   | Epoch: [0/30] | Loss: 0.6945 | AP: 30.97 | TP:129.0, FP:184.0, FN:0.0, TN:0.0 | ACC: 41.21
+INFO:root:=> AP improved (30.97) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/30] | Loss: 0.6814 | AP: 44.93 | TP:97.38, FP:148.91, FN:2.40, TN:4.55 | ACC: 40.23
+INFO:root:VAL   | Epoch: [1/30] | Loss: 0.6998 | AP: 31.73 | TP:116.0, FP:169.0, FN:13.0, TN:15.0 | ACC: 41.85
+INFO:root:=> AP improved (31.73) improved at epoch 1 | saving best model!
+INFO:root:TRAIN | Epoch: [2/30] | Loss: 0.6779 | AP: 46.47 | TP:90.33, FP:130.21, FN:9.37, TN:23.32 | ACC: 44.93
+INFO:root:VAL   | Epoch: [2/30] | Loss: 0.7043 | AP: 32.39 | TP:111.0, FP:154.0, FN:18.0, TN:30.0 | ACC: 45.05
+INFO:root:=> AP improved (32.39) improved at epoch 2 | saving best model!
+INFO:root:TRAIN | Epoch: [3/30] | Loss: 0.6762 | AP: 46.82 | TP:89.07, FP:124.24, FN:10.56, TN:29.36 | ACC: 46.74
+INFO:root:VAL   | Epoch: [3/30] | Loss: 0.7085 | AP: 32.60 | TP:105.5, FP:153.5, FN:23.5, TN:30.5 | ACC: 43.45
+INFO:root:=> AP improved (32.60) improved at epoch 3 | saving best model!
+INFO:root:TRAIN | Epoch: [4/30] | Loss: 0.6755 | AP: 47.28 | TP:88.60, FP:125.25, FN:11.11, TN:28.28 | ACC: 46.12
+INFO:root:VAL   | Epoch: [4/30] | Loss: 0.7106 | AP: 32.41 | TP:111.5, FP:159.5, FN:17.5, TN:24.5 | ACC: 43.45
+INFO:root:TRAIN | Epoch: [5/30] | Loss: 0.6745 | AP: 47.81 | TP:87.62, FP:122.53, FN:12.05, TN:31.04 | ACC: 46.85
+INFO:root:VAL   | Epoch: [5/30] | Loss: 0.7085 | AP: 33.33 | TP:108.0, FP:152.0, FN:21.0, TN:32.0 | ACC: 44.73
+INFO:root:=> AP improved (33.33) improved at epoch 5 | saving best model!
+INFO:root:TRAIN | Epoch: [6/30] | Loss: 0.6731 | AP: 48.55 | TP:85.71, FP:118.41, FN:14.08, TN:35.04 | ACC: 47.64
+INFO:root:VAL   | Epoch: [6/30] | Loss: 0.7087 | AP: 33.70 | TP:107.0, FP:154.0, FN:22.0, TN:30.0 | ACC: 43.77
+INFO:root:=> AP improved (33.70) improved at epoch 6 | saving best model!
+INFO:root:TRAIN | Epoch: [7/30] | Loss: 0.6725 | AP: 48.48 | TP:87.67, FP:120.05, FN:11.96, TN:33.56 | ACC: 47.87
+INFO:root:VAL   | Epoch: [7/30] | Loss: 0.7176 | AP: 33.50 | TP:104.5, FP:152.0, FN:24.5, TN:32.0 | ACC: 43.61
+INFO:root:TRAIN | Epoch: [8/30] | Loss: 0.6702 | AP: 49.66 | TP:83.87, FP:112.37, FN:15.84, TN:41.15 | ACC: 49.39
+INFO:root:VAL   | Epoch: [8/30] | Loss: 0.7097 | AP: 34.71 | TP:105.5, FP:150.0, FN:23.5, TN:34.0 | ACC: 44.57
+INFO:root:=> AP improved (34.71) improved at epoch 8 | saving best model!
+INFO:root:TRAIN | Epoch: [9/30] | Loss: 0.6712 | AP: 49.21 | TP:86.38, FP:119.03, FN:13.15, TN:34.68 | ACC: 47.85
+INFO:root:VAL   | Epoch: [9/30] | Loss: 0.7091 | AP: 35.73 | TP:100.5, FP:145.0, FN:28.5, TN:39.0 | ACC: 44.57
+INFO:root:=> AP improved (35.73) improved at epoch 9 | saving best model!
+INFO:root:TRAIN | Epoch: [10/30] | Loss: 0.6700 | AP: 50.00 | TP:85.42, FP:115.54, FN:14.23, TN:38.06 | ACC: 48.75
+INFO:root:VAL   | Epoch: [10/30] | Loss: 0.7169 | AP: 35.13 | TP:101.0, FP:153.0, FN:28.0, TN:31.0 | ACC: 42.17
+INFO:root:TRAIN | Epoch: [11/30] | Loss: 0.6679 | AP: 49.92 | TP:84.11, FP:112.17, FN:15.66, TN:41.30 | ACC: 49.46
+INFO:root:VAL   | Epoch: [11/30] | Loss: 0.7139 | AP: 36.31 | TP:97.5, FP:148.0, FN:31.5, TN:36.0 | ACC: 42.65
+INFO:root:=> AP improved (36.31) improved at epoch 11 | saving best model!
+INFO:root:TRAIN | Epoch: [12/30] | Loss: 0.6673 | AP: 50.59 | TP:83.42, FP:110.77, FN:16.34, TN:42.70 | ACC: 49.77
+INFO:root:VAL   | Epoch: [12/30] | Loss: 0.7203 | AP: 36.11 | TP:93.0, FP:147.0, FN:36.0, TN:37.0 | ACC: 41.53
+INFO:root:TRAIN | Epoch: [13/30] | Loss: 0.6661 | AP: 51.21 | TP:83.67, FP:111.77, FN:15.98, TN:41.82 | ACC: 49.54
+INFO:root:VAL   | Epoch: [13/30] | Loss: 0.7176 | AP: 36.63 | TP:88.5, FP:145.0, FN:40.5, TN:39.0 | ACC: 40.73
+INFO:root:=> AP improved (36.63) improved at epoch 13 | saving best model!
+INFO:root:TRAIN | Epoch: [14/30] | Loss: 0.6669 | AP: 50.54 | TP:84.06, FP:110.67, FN:15.53, TN:42.98 | ACC: 50.23
+INFO:root:VAL   | Epoch: [14/30] | Loss: 0.7208 | AP: 37.79 | TP:86.5, FP:145.0, FN:42.5, TN:39.0 | ACC: 40.10
+INFO:root:=> AP improved (37.79) improved at epoch 14 | saving best model!
+INFO:root:TRAIN | Epoch: [15/30] | Loss: 0.6641 | AP: 51.09 | TP:81.20, FP:104.21, FN:18.36, TN:49.48 | ACC: 51.61
+INFO:root:VAL   | Epoch: [15/30] | Loss: 0.7317 | AP: 35.53 | TP:93.5, FP:150.0, FN:35.5, TN:34.0 | ACC: 40.73
+INFO:root:TRAIN | Epoch: [16/30] | Loss: 0.6651 | AP: 51.16 | TP:81.58, FP:106.31, FN:18.03, TN:47.31 | ACC: 50.92
+INFO:root:VAL   | Epoch: [16/30] | Loss: 0.7334 | AP: 35.76 | TP:87.0, FP:145.0, FN:42.0, TN:39.0 | ACC: 40.26
+INFO:root:TRAIN | Epoch: [17/30] | Loss: 0.6633 | AP: 51.57 | TP:83.22, FP:107.16, FN:16.36, TN:46.49 | ACC: 51.25
+INFO:root:VAL   | Epoch: [17/30] | Loss: 0.7290 | AP: 37.96 | TP:81.5, FP:130.5, FN:47.5, TN:53.5 | ACC: 43.13
+INFO:root:=> AP improved (37.96) improved at epoch 17 | saving best model!
+INFO:root:TRAIN | Epoch: [18/30] | Loss: 0.6639 | AP: 51.34 | TP:81.68, FP:105.79, FN:18.00, TN:47.77 | ACC: 51.21
+INFO:root:VAL   | Epoch: [18/30] | Loss: 0.7364 | AP: 36.23 | TP:84.0, FP:141.0, FN:45.0, TN:43.0 | ACC: 40.58
+INFO:root:TRAIN | Epoch: [19/30] | Loss: 0.6627 | AP: 52.07 | TP:79.57, FP:98.72, FN:20.20, TN:54.74 | ACC: 53.01
+INFO:root:VAL   | Epoch: [19/30] | Loss: 0.7369 | AP: 35.92 | TP:88.5, FP:148.5, FN:40.5, TN:35.5 | ACC: 39.62
+INFO:root:TRAIN | Epoch: [20/30] | Loss: 0.6615 | AP: 52.39 | TP:78.56, FP:97.37, FN:21.11, TN:56.19 | ACC: 53.21
+INFO:root:VAL   | Epoch: [20/30] | Loss: 0.7388 | AP: 36.91 | TP:93.0, FP:148.5, FN:36.0, TN:35.5 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [21/30] | Loss: 0.6631 | AP: 52.34 | TP:80.59, FP:102.65, FN:18.98, TN:51.02 | ACC: 51.96
+INFO:root:VAL   | Epoch: [21/30] | Loss: 0.7393 | AP: 36.73 | TP:82.5, FP:138.0, FN:46.5, TN:46.0 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [22/30] | Loss: 0.6599 | AP: 53.10 | TP:81.48, FP:100.90, FN:18.10, TN:52.75 | ACC: 53.01
+INFO:root:VAL   | Epoch: [22/30] | Loss: 0.7368 | AP: 36.62 | TP:83.5, FP:133.5, FN:45.5, TN:50.5 | ACC: 42.81
+INFO:root:TRAIN | Epoch: [23/30] | Loss: 0.6606 | AP: 53.08 | TP:78.30, FP:96.28, FN:21.14, TN:57.52 | ACC: 53.65
+INFO:root:VAL   | Epoch: [23/30] | Loss: 0.7404 | AP: 37.21 | TP:90.0, FP:145.5, FN:39.0, TN:38.5 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [24/30] | Loss: 0.6602 | AP: 53.02 | TP:80.79, FP:102.38, FN:19.01, TN:51.07 | ACC: 52.00
+INFO:root:VAL   | Epoch: [24/30] | Loss: 0.7418 | AP: 37.45 | TP:75.5, FP:127.5, FN:53.5, TN:56.5 | ACC: 42.17
+INFO:root:TRAIN | Epoch: [25/30] | Loss: 0.6584 | AP: 53.89 | TP:77.98, FP:92.77, FN:21.65, TN:60.83 | ACC: 54.80
+INFO:root:VAL   | Epoch: [25/30] | Loss: 0.7457 | AP: 37.64 | TP:79.0, FP:132.5, FN:50.0, TN:51.5 | ACC: 41.69
+INFO:root:TRAIN | Epoch: [26/30] | Loss: 0.6578 | AP: 53.62 | TP:77.06, FP:91.43, FN:22.43, TN:62.32 | ACC: 55.07
+INFO:root:VAL   | Epoch: [26/30] | Loss: 0.7409 | AP: 37.18 | TP:81.0, FP:130.0, FN:48.0, TN:54.0 | ACC: 43.13
+INFO:root:TRAIN | Epoch: [27/30] | Loss: 0.6563 | AP: 54.10 | TP:77.06, FP:94.51, FN:22.70, TN:58.96 | ACC: 53.71
+INFO:root:VAL   | Epoch: [27/30] | Loss: 0.7477 | AP: 37.89 | TP:74.5, FP:130.0, FN:54.5, TN:54.0 | ACC: 41.05
+INFO:root:TRAIN | Epoch: [28/30] | Loss: 0.6577 | AP: 53.87 | TP:77.78, FP:95.57, FN:21.95, TN:57.93 | ACC: 53.61
+INFO:root:VAL   | Epoch: [28/30] | Loss: 0.7350 | AP: 38.27 | TP:74.0, FP:122.5, FN:55.0, TN:61.5 | ACC: 43.29
+INFO:root:=> AP improved (38.27) improved at epoch 28 | saving best model!
+INFO:root:TRAIN | Epoch: [29/30] | Loss: 0.6555 | AP: 54.31 | TP:78.95, FP:94.15, FN:20.72, TN:59.41 | ACC: 54.61
+INFO:root:VAL   | Epoch: [29/30] | Loss: 0.7382 | AP: 38.85 | TP:61.5, FP:112.5, FN:67.5, TN:71.5 | ACC: 42.49
+INFO:root:=> AP improved (38.85) improved at epoch 29 | saving best model!
+INFO:root:### Training from epoch 0 -> 29 finished in (25.04) minutes
+INFO:root:### Best validation AP: 38.85 in epoch 29
+INFO:root:# Test Set | Loss: 0.7081 | AP: 41.10 | TP:159.0, FP:200.0, FN:78.0, TN:146.0 | ACC: 52.32
+INFO:root:Namespace(aggregation='last', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='GRU', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/GRU_layers2_stride5_last_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/GRU_layers2_stride5_last_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:GRU(
+  (rnn): GRU(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:Namespace(aggregation='last', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='GRU', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/GRU_layers2_stride5_last_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/GRU_layers2_stride5_last_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:GRU(
+  (rnn): GRU(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:TRAIN | Epoch: [0/30] | Loss: 0.6902 | AP: 41.02 | TP:76.28, FP:116.44, FN:22.01, TN:34.98 | ACC: 44.45
+INFO:root:VAL   | Epoch: [0/30] | Loss: 0.6954 | AP: 30.76 | TP:127.0, FP:184.0, FN:2.0, TN:0.0 | ACC: 40.58
+INFO:root:=> AP improved (30.76) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/30] | Loss: 0.6839 | AP: 43.18 | TP:97.53, FP:151.43, FN:0.21, TN:0.53 | ACC: 39.48
+INFO:root:VAL   | Epoch: [1/30] | Loss: 0.6956 | AP: 31.35 | TP:129.0, FP:183.0, FN:0.0, TN:1.0 | ACC: 41.53
+INFO:root:=> AP improved (31.35) improved at epoch 1 | saving best model!
+INFO:root:Namespace(aggregation='last', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=30, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='GRU', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/GRU_layers2_stride5_last_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/GRU_layers2_stride5_last_lr0.0001', temp_stride=5, wd=1e-05)
+INFO:root:GRU(
+  (rnn): GRU(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:TRAIN | Epoch: [0/30] | Loss: 0.6902 | AP: 41.18 | TP:75.07, FP:116.97, FN:23.22, TN:34.44 | ACC: 43.74
+INFO:root:VAL   | Epoch: [0/30] | Loss: 0.6960 | AP: 29.94 | TP:129.0, FP:183.0, FN:0.0, TN:1.0 | ACC: 41.53
+INFO:root:=> AP improved (29.94) improved at epoch 0 | saving best model!

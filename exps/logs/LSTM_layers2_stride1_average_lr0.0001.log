@@ -1,0 +1,114 @@
+INFO:root:Namespace(aggregation='average', batch_size=256, debug=False, device=device(type='cuda'), dropout=0.1, epochs=50, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='LSTM', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/LSTM_layers2_stride1_average_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/LSTM_layers2_stride1_average_lr0.0001', temp_stride=1)
+INFO:root:LSTM(
+  (rnn): LSTM(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 2396 samples for train
+INFO:root:=> Loading 313 samples for val
+INFO:root:=> Loading 583 samples for test
+INFO:root:TRAIN | Epoch: [0/50] | Loss: 0.6930 | AP: 44.96 | TP:2.82, FP:3.00, FN:95.68, TN:148.21 | ACC: 60.52
+INFO:root:VAL   | Epoch: [0/50] | Loss: 0.6944 | AP: 38.93 | TP:7.0, FP:11.0, FN:122.0, TN:173.0 | ACC: 57.51
+INFO:root:=> AP improved (38.93) improved at epoch 0 | saving best model!
+INFO:root:TRAIN | Epoch: [1/50] | Loss: 0.6917 | AP: 48.38 | TP:27.65, FP:29.13, FN:70.77, TN:122.15 | ACC: 59.93
+INFO:root:VAL   | Epoch: [1/50] | Loss: 0.6945 | AP: 35.85 | TP:63.0, FP:110.0, FN:66.0, TN:74.0 | ACC: 43.77
+INFO:root:TRAIN | Epoch: [2/50] | Loss: 0.6906 | AP: 47.48 | TP:65.78, FP:77.26, FN:32.23, TN:74.43 | ACC: 56.14
+INFO:root:VAL   | Epoch: [2/50] | Loss: 0.6952 | AP: 35.00 | TP:82.0, FP:132.0, FN:47.0, TN:52.0 | ACC: 42.81
+INFO:root:TRAIN | Epoch: [3/50] | Loss: 0.6895 | AP: 48.01 | TP:75.36, FP:96.42, FN:22.18, TN:55.75 | ACC: 52.63
+INFO:root:VAL   | Epoch: [3/50] | Loss: 0.6960 | AP: 34.66 | TP:85.0, FP:142.0, FN:44.0, TN:42.0 | ACC: 40.58
+INFO:root:TRAIN | Epoch: [4/50] | Loss: 0.6882 | AP: 48.15 | TP:80.23, FP:105.01, FN:18.47, TN:45.99 | ACC: 50.38
+INFO:root:VAL   | Epoch: [4/50] | Loss: 0.6970 | AP: 34.34 | TP:96.0, FP:147.0, FN:33.0, TN:37.0 | ACC: 42.49
+INFO:root:TRAIN | Epoch: [5/50] | Loss: 0.6866 | AP: 48.77 | TP:79.43, FP:102.79, FN:18.72, TN:48.76 | ACC: 51.25
+INFO:root:VAL   | Epoch: [5/50] | Loss: 0.6986 | AP: 34.46 | TP:85.0, FP:140.0, FN:44.0, TN:44.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [6/50] | Loss: 0.6851 | AP: 48.55 | TP:74.19, FP:93.01, FN:24.24, TN:58.27 | ACC: 53.13
+INFO:root:VAL   | Epoch: [6/50] | Loss: 0.7010 | AP: 34.61 | TP:75.0, FP:129.0, FN:54.0, TN:55.0 | ACC: 41.53
+INFO:root:TRAIN | Epoch: [7/50] | Loss: 0.6830 | AP: 48.47 | TP:70.11, FP:88.28, FN:27.84, TN:63.48 | ACC: 53.46
+INFO:root:VAL   | Epoch: [7/50] | Loss: 0.7049 | AP: 34.70 | TP:77.0, FP:131.0, FN:52.0, TN:53.0 | ACC: 41.53
+INFO:root:TRAIN | Epoch: [8/50] | Loss: 0.6807 | AP: 49.87 | TP:71.84, FP:91.90, FN:26.24, TN:59.72 | ACC: 52.75
+INFO:root:VAL   | Epoch: [8/50] | Loss: 0.7100 | AP: 34.62 | TP:76.0, FP:133.0, FN:53.0, TN:51.0 | ACC: 40.58
+INFO:root:TRAIN | Epoch: [9/50] | Loss: 0.6787 | AP: 49.75 | TP:71.43, FP:88.25, FN:27.00, TN:63.03 | ACC: 53.67
+INFO:root:VAL   | Epoch: [9/50] | Loss: 0.7169 | AP: 34.91 | TP:72.0, FP:126.0, FN:57.0, TN:58.0 | ACC: 41.53
+INFO:root:TRAIN | Epoch: [10/50] | Loss: 0.6783 | AP: 49.24 | TP:67.23, FP:85.29, FN:31.13, TN:66.06 | ACC: 53.30
+INFO:root:VAL   | Epoch: [10/50] | Loss: 0.7201 | AP: 35.11 | TP:71.0, FP:126.0, FN:58.0, TN:58.0 | ACC: 41.21
+INFO:root:TRAIN | Epoch: [11/50] | Loss: 0.6764 | AP: 49.71 | TP:70.39, FP:85.38, FN:28.31, TN:65.62 | ACC: 54.47
+INFO:root:VAL   | Epoch: [11/50] | Loss: 0.7238 | AP: 35.08 | TP:75.0, FP:127.0, FN:54.0, TN:57.0 | ACC: 42.17
+INFO:root:TRAIN | Epoch: [12/50] | Loss: 0.6744 | AP: 50.63 | TP:68.41, FP:81.83, FN:30.29, TN:69.17 | ACC: 55.13
+INFO:root:VAL   | Epoch: [12/50] | Loss: 0.7282 | AP: 35.57 | TP:68.0, FP:116.0, FN:61.0, TN:68.0 | ACC: 43.45
+INFO:root:TRAIN | Epoch: [13/50] | Loss: 0.6757 | AP: 50.57 | TP:61.51, FP:70.61, FN:36.71, TN:80.87 | ACC: 57.22
+INFO:root:VAL   | Epoch: [13/50] | Loss: 0.7281 | AP: 35.93 | TP:62.0, FP:109.0, FN:67.0, TN:75.0 | ACC: 43.77
+INFO:root:TRAIN | Epoch: [14/50] | Loss: 0.6749 | AP: 50.74 | TP:65.18, FP:78.16, FN:32.83, TN:73.53 | ACC: 55.47
+INFO:root:VAL   | Epoch: [14/50] | Loss: 0.7308 | AP: 35.54 | TP:71.0, FP:125.0, FN:58.0, TN:59.0 | ACC: 41.53
+INFO:root:TRAIN | Epoch: [15/50] | Loss: 0.6737 | AP: 51.10 | TP:68.95, FP:81.43, FN:29.07, TN:70.26 | ACC: 55.63
+INFO:root:VAL   | Epoch: [15/50] | Loss: 0.7274 | AP: 35.99 | TP:70.0, FP:120.0, FN:59.0, TN:64.0 | ACC: 42.81
+INFO:root:TRAIN | Epoch: [16/50] | Loss: 0.6728 | AP: 51.17 | TP:66.75, FP:78.63, FN:31.75, TN:72.58 | ACC: 55.76
+INFO:root:VAL   | Epoch: [16/50] | Loss: 0.7272 | AP: 36.22 | TP:69.0, FP:118.0, FN:60.0, TN:66.0 | ACC: 43.13
+INFO:root:TRAIN | Epoch: [17/50] | Loss: 0.6709 | AP: 51.62 | TP:63.52, FP:69.75, FN:34.90, TN:81.52 | ACC: 58.26
+INFO:root:VAL   | Epoch: [17/50] | Loss: 0.7284 | AP: 36.41 | TP:66.0, FP:110.0, FN:63.0, TN:74.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [18/50] | Loss: 0.6710 | AP: 52.52 | TP:66.96, FP:78.05, FN:31.47, TN:73.23 | ACC: 56.18
+INFO:root:VAL   | Epoch: [18/50] | Loss: 0.7352 | AP: 36.20 | TP:68.0, FP:118.0, FN:61.0, TN:66.0 | ACC: 42.81
+INFO:root:TRAIN | Epoch: [19/50] | Loss: 0.6683 | AP: 51.93 | TP:66.40, FP:72.00, FN:31.89, TN:79.41 | ACC: 58.35
+INFO:root:VAL   | Epoch: [19/50] | Loss: 0.7356 | AP: 36.71 | TP:67.0, FP:104.0, FN:62.0, TN:80.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [20/50] | Loss: 0.6694 | AP: 52.55 | TP:59.64, FP:62.78, FN:39.13, TN:88.15 | ACC: 59.31
+INFO:root:VAL   | Epoch: [20/50] | Loss: 0.7327 | AP: 36.91 | TP:67.0, FP:105.0, FN:62.0, TN:79.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [21/50] | Loss: 0.6659 | AP: 53.08 | TP:65.80, FP:71.08, FN:32.97, TN:79.86 | ACC: 58.18
+INFO:root:VAL   | Epoch: [21/50] | Loss: 0.7405 | AP: 36.39 | TP:70.0, FP:114.0, FN:59.0, TN:70.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [22/50] | Loss: 0.6663 | AP: 53.37 | TP:63.68, FP:69.89, FN:35.02, TN:81.11 | ACC: 58.06
+INFO:root:VAL   | Epoch: [22/50] | Loss: 0.7356 | AP: 36.74 | TP:67.0, FP:106.0, FN:62.0, TN:78.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [23/50] | Loss: 0.6636 | AP: 53.69 | TP:65.29, FP:67.29, FN:33.41, TN:83.71 | ACC: 59.52
+INFO:root:VAL   | Epoch: [23/50] | Loss: 0.7471 | AP: 36.33 | TP:70.0, FP:111.0, FN:59.0, TN:73.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [24/50] | Loss: 0.6628 | AP: 54.22 | TP:65.48, FP:70.00, FN:32.95, TN:81.27 | ACC: 58.85
+INFO:root:VAL   | Epoch: [24/50] | Loss: 0.7458 | AP: 36.73 | TP:64.0, FP:105.0, FN:65.0, TN:79.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [25/50] | Loss: 0.6630 | AP: 54.24 | TP:58.77, FP:59.05, FN:38.97, TN:92.91 | ACC: 60.64
+INFO:root:VAL   | Epoch: [25/50] | Loss: 0.7590 | AP: 36.27 | TP:67.0, FP:107.0, FN:62.0, TN:77.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [26/50] | Loss: 0.6605 | AP: 54.76 | TP:66.27, FP:70.66, FN:32.02, TN:80.75 | ACC: 58.85
+INFO:root:VAL   | Epoch: [26/50] | Loss: 0.7513 | AP: 36.54 | TP:66.0, FP:106.0, FN:63.0, TN:78.0 | ACC: 46.01
+INFO:root:TRAIN | Epoch: [27/50] | Loss: 0.6607 | AP: 54.88 | TP:60.08, FP:61.00, FN:38.49, TN:90.14 | ACC: 60.31
+INFO:root:VAL   | Epoch: [27/50] | Loss: 0.7484 | AP: 36.70 | TP:62.0, FP:99.0, FN:67.0, TN:85.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [28/50] | Loss: 0.6596 | AP: 55.23 | TP:60.13, FP:61.55, FN:37.89, TN:90.14 | ACC: 60.52
+INFO:root:VAL   | Epoch: [28/50] | Loss: 0.7591 | AP: 36.54 | TP:62.0, FP:100.0, FN:67.0, TN:84.0 | ACC: 46.65
+INFO:root:TRAIN | Epoch: [29/50] | Loss: 0.6590 | AP: 55.40 | TP:59.01, FP:61.63, FN:38.74, TN:90.33 | ACC: 59.72
+INFO:root:VAL   | Epoch: [29/50] | Loss: 0.7627 | AP: 36.57 | TP:63.0, FP:99.0, FN:66.0, TN:85.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [30/50] | Loss: 0.6572 | AP: 55.79 | TP:61.72, FP:65.19, FN:36.23, TN:86.57 | ACC: 59.47
+INFO:root:VAL   | Epoch: [30/50] | Loss: 0.7575 | AP: 36.64 | TP:61.0, FP:97.0, FN:68.0, TN:87.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [31/50] | Loss: 0.6555 | AP: 56.68 | TP:60.60, FP:61.20, FN:37.55, TN:90.35 | ACC: 60.14
+INFO:root:VAL   | Epoch: [31/50] | Loss: 0.7720 | AP: 36.19 | TP:64.0, FP:100.0, FN:65.0, TN:84.0 | ACC: 47.28
+INFO:root:TRAIN | Epoch: [32/50] | Loss: 0.6535 | AP: 57.02 | TP:62.09, FP:62.98, FN:36.89, TN:87.74 | ACC: 59.89
+INFO:root:VAL   | Epoch: [32/50] | Loss: 0.7674 | AP: 36.32 | TP:51.0, FP:94.0, FN:78.0, TN:90.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [33/50] | Loss: 0.6571 | AP: 57.08 | TP:49.27, FP:44.96, FN:49.16, TN:106.31 | ACC: 62.27
+INFO:root:VAL   | Epoch: [33/50] | Loss: 0.7753 | AP: 36.05 | TP:53.0, FP:95.0, FN:76.0, TN:89.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [34/50] | Loss: 0.6561 | AP: 56.55 | TP:62.21, FP:63.24, FN:36.08, TN:88.17 | ACC: 60.27
+INFO:root:VAL   | Epoch: [34/50] | Loss: 0.7677 | AP: 35.99 | TP:51.0, FP:93.0, FN:78.0, TN:91.0 | ACC: 45.37
+INFO:root:TRAIN | Epoch: [35/50] | Loss: 0.6492 | AP: 58.52 | TP:58.25, FP:54.80, FN:39.90, TN:96.75 | ACC: 61.94
+INFO:root:VAL   | Epoch: [35/50] | Loss: 0.7799 | AP: 35.97 | TP:53.0, FP:94.0, FN:76.0, TN:90.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [36/50] | Loss: 0.6502 | AP: 57.55 | TP:56.18, FP:53.62, FN:41.70, TN:98.21 | ACC: 61.64
+INFO:root:VAL   | Epoch: [36/50] | Loss: 0.7808 | AP: 36.13 | TP:48.0, FP:91.0, FN:81.0, TN:93.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [37/50] | Loss: 0.6497 | AP: 57.86 | TP:58.75, FP:57.46, FN:39.82, TN:93.68 | ACC: 60.85
+INFO:root:VAL   | Epoch: [37/50] | Loss: 0.7745 | AP: 36.12 | TP:48.0, FP:95.0, FN:81.0, TN:89.0 | ACC: 43.77
+INFO:root:TRAIN | Epoch: [38/50] | Loss: 0.6494 | AP: 58.55 | TP:51.76, FP:45.56, FN:47.08, TN:105.30 | ACC: 62.77
+INFO:root:VAL   | Epoch: [38/50] | Loss: 0.7829 | AP: 35.67 | TP:59.0, FP:100.0, FN:70.0, TN:84.0 | ACC: 45.69
+INFO:root:TRAIN | Epoch: [39/50] | Loss: 0.6486 | AP: 57.98 | TP:60.71, FP:61.21, FN:37.86, TN:89.93 | ACC: 60.39
+INFO:root:VAL   | Epoch: [39/50] | Loss: 0.7786 | AP: 36.00 | TP:48.0, FP:97.0, FN:81.0, TN:87.0 | ACC: 43.13
+INFO:root:TRAIN | Epoch: [40/50] | Loss: 0.6443 | AP: 58.99 | TP:54.98, FP:49.93, FN:43.10, TN:101.69 | ACC: 62.94
+INFO:root:VAL   | Epoch: [40/50] | Loss: 0.7930 | AP: 35.88 | TP:49.0, FP:98.0, FN:80.0, TN:86.0 | ACC: 43.13
+INFO:root:TRAIN | Epoch: [41/50] | Loss: 0.6451 | AP: 58.79 | TP:58.31, FP:54.08, FN:40.53, TN:96.78 | ACC: 62.19
+INFO:root:VAL   | Epoch: [41/50] | Loss: 0.7855 | AP: 36.15 | TP:47.0, FP:84.0, FN:82.0, TN:100.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [42/50] | Loss: 0.6480 | AP: 58.57 | TP:52.84, FP:49.45, FN:45.59, TN:101.82 | ACC: 62.02
+INFO:root:VAL   | Epoch: [42/50] | Loss: 0.8035 | AP: 35.62 | TP:52.0, FP:96.0, FN:77.0, TN:88.0 | ACC: 44.73
+INFO:root:TRAIN | Epoch: [43/50] | Loss: 0.6429 | AP: 59.07 | TP:60.38, FP:58.28, FN:38.39, TN:92.65 | ACC: 61.06
+INFO:root:VAL   | Epoch: [43/50] | Loss: 0.7991 | AP: 35.74 | TP:49.0, FP:94.0, FN:80.0, TN:90.0 | ACC: 44.41
+INFO:root:TRAIN | Epoch: [44/50] | Loss: 0.6438 | AP: 59.29 | TP:54.94, FP:50.75, FN:43.15, TN:100.86 | ACC: 62.44
+INFO:root:VAL   | Epoch: [44/50] | Loss: 0.7928 | AP: 35.98 | TP:47.0, FP:86.0, FN:82.0, TN:98.0 | ACC: 46.33
+INFO:root:TRAIN | Epoch: [45/50] | Loss: 0.6412 | AP: 59.68 | TP:55.19, FP:47.35, FN:43.10, TN:104.06 | ACC: 63.73
+INFO:root:VAL   | Epoch: [45/50] | Loss: 0.8287 | AP: 35.45 | TP:54.0, FP:97.0, FN:75.0, TN:87.0 | ACC: 45.05
+INFO:root:TRAIN | Epoch: [46/50] | Loss: 0.6395 | AP: 59.66 | TP:58.28, FP:53.19, FN:40.08, TN:98.15 | ACC: 62.60
+INFO:root:VAL   | Epoch: [46/50] | Loss: 0.7920 | AP: 36.18 | TP:46.0, FP:79.0, FN:83.0, TN:105.0 | ACC: 48.24
+INFO:root:TRAIN | Epoch: [47/50] | Loss: 0.6427 | AP: 59.67 | TP:56.37, FP:51.99, FN:42.40, TN:98.94 | ACC: 62.27
+INFO:root:VAL   | Epoch: [47/50] | Loss: 0.8018 | AP: 36.01 | TP:58.0, FP:95.0, FN:71.0, TN:89.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [48/50] | Loss: 0.6410 | AP: 59.96 | TP:54.57, FP:51.80, FN:43.66, TN:99.68 | ACC: 61.64
+INFO:root:VAL   | Epoch: [48/50] | Loss: 0.7989 | AP: 36.41 | TP:52.0, FP:89.0, FN:77.0, TN:95.0 | ACC: 46.96
+INFO:root:TRAIN | Epoch: [49/50] | Loss: 0.6399 | AP: 59.69 | TP:58.20, FP:52.66, FN:40.63, TN:98.21 | ACC: 62.73
+INFO:root:VAL   | Epoch: [49/50] | Loss: 0.8047 | AP: 36.52 | TP:48.0, FP:84.0, FN:81.0, TN:100.0 | ACC: 47.28
+INFO:root:### Training from epoch 0 -> 49 finished in (1.30) minutes
+INFO:root:### Best validation AP: 38.93 in epoch 0
+INFO:root:# Test Set | Loss: 0.6932 | AP: 44.45 | TP:26.0, FP:33.0, FN:211.0, TN:313.0 | ACC: 58.15

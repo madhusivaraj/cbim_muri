@@ -1,0 +1,10 @@
+INFO:root:Namespace(aggregation='attention', batch_size=256, debug=False, device=device(type='cpu'), dropout=0.1, epochs=20, hidden_size=128, in_features=17, kernel_size=3, log_dir='exps/logs', lr=0.0001, model='GRU', num_channels=[64, 64, 128], num_classes=2, num_layers=2, num_workers=4, print_freq=5, root='data', save_dir='exps/chpts/GRU_layers2_stride5_attention_lr0.0001', seed=14, start_epoch=0, tb_dir='exps/tb/GRU_layers2_stride5_attention_lr0.0001', temp_stride=5)
+INFO:root:GRU(
+  (rnn): GRU(17, 128, num_layers=2, batch_first=True)
+  (fc): Linear(in_features=128, out_features=2, bias=True)
+  (avg_pool): AdaptiveAvgPool1d(output_size=1)
+  (max_pool): AdaptiveMaxPool1d(output_size=1)
+)
+INFO:root:=> Loading 4792 samples for train
+INFO:root:=> Loading 626 samples for val
+INFO:root:=> Loading 1166 samples for test
